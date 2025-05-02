@@ -130,58 +130,64 @@ Semantic 토큰은 Foundation 토큰을 참조하여 실제 사용 맥락과 의
 
 ### Semantic 토큰 카테고리 구조
 
-Microsoft Fluent Design System을 기반으로 한 Semantic 토큰은 계층적 구조를 갖습니다:
+디자인 시스템의 시맨틱 토큰은 다음과 같은 계층적 구조를 갖습니다:
 
-#### 1. 색상 토큰 최상위 카테고리 (4가지)
-
-- **Neutral**: 중립적인 색상들로, 주로 텍스트, 배경, 테두리 등에 사용
-- **Primary**: 브랜드 아이덴티티를 나타내는 주요 색상들
-- **Status**: 성공, 경고, 오류, 정보 등의 상태를 표현하는 색상들
-- **Shadow**: 그림자 효과를 위한 색상 및 불투명도 값들
-
-#### 2. 용도 계층
-
-각 최상위 카테고리 아래 실제 용도에 따른 구분:
-- **Background**: 배경 색상
-- **Foreground**: 전경 색상 (주로 텍스트)
-- **Stroke**: 테두리 및 구분선
-
-#### 3. 위계 계층
-
-용도 내에서의 중요도나 강조 수준을 숫자로 표현:
-- **1**: 가장 강조되는 수준
-- **2**: 중간 수준의 강조
-- **3**: 가장 낮은 수준의 강조
-
-#### 4. 상태 계층
-
-사용자 인터랙션에 따른 상태 변화:
-- **Rest**: 기본 상태
-- **Hovered**: 마우스 오버 상태
-- **Pressed**: 클릭 또는 터치 상태
-- **Disabled**: 비활성화 상태
-
-#### 5. 색상 토큰 명명 규칙의 일관성
-
-색상 시맨틱 토큰의 핵심 원칙은 모든 토큰이 항상 **용도-위계-상태**의 세 단계 구조를 명시적으로 가지는 것입니다:
+#### 시맨틱 토큰의 5단계 계층 구조
 
 ```
-최상위카테고리.용도.위계.상태
+테마.상황.용도.위계.상태
+```
+
+1. **테마(Theme)**: 디자인 시스템 옵션/버전
+   - 서비스별 디자인 시스템 (예: `service-a`, `service-b`)
+   - 버전별 디자인 시스템 (예: `system-1`, `system-2`)
+   - 디자인 시스템 프레임워크 버전 (예: `material-1`, `material-2`, `fluent-1`)
+
+2. **상황(Context)**: 사용되는 맥락
+   - **Neutral**: 중립적인 색상들로, 주로 텍스트, 배경, 테두리 등에 사용
+   - **Primary**: 브랜드 아이덴티티를 나타내는 주요 색상들
+   - **Status**: 성공, 경고, 오류, 정보 등의 상태를 표현하는 색상들
+   - **Shadow**: 그림자 효과를 위한 색상 및 불투명도 값들
+
+3. **용도(Usage)**: 실제 활용 목적
+   - **Background**: 배경 색상
+   - **Foreground**: 전경 색상 (주로 텍스트)
+   - **Stroke**: 테두리 및 구분선
+
+4. **위계(Hierarchy)**: 중요도 수준
+   - **1**: 가장 강조되는 수준
+   - **2**: 중간 수준의 강조
+   - **3**: 가장 낮은 수준의 강조
+
+5. **상태(State)**: CSS pseudo-class 기반 상태
+   - **default**: 기본 상태
+   - **hover**: 마우스 오버 상태
+   - **focus**: 포커스 상태
+   - **active**: 활성화 상태
+   - **disabled**: 비활성화 상태
+
+#### 토큰 네이밍 규칙의 일관성
+
+모든 시맨틱 토큰은 항상 위의 5단계 구조를 모두 포함해야 합니다:
+
+```
+테마.상황.용도.위계.상태
 ```
 
 예시:
-- `neutral.background.1.rest`
-- `primary.foreground.1.hovered`
-- `status.error.background.1.rest`
-- `status.success.foreground.1.disabled`
+- `system-1.primary.background.1.default`
+- `service-a.neutral.foreground.1.hover`
+- `material-2.status-error.background.1.default`
+- `fluent-1.primary.stroke.2.disabled`
 
-이 규칙은 해당 색상에 위계나 상태가 하나밖에 없는 경우에도 반드시 적용해야 합니다. 예를 들어, 에러 메시지 배경색이 하나의 위계와 상태만 있더라도 `status.error.background.1.rest`와 같이 명시적으로 모든 계층을 표현해야 합니다.
+이 규칙은 해당 색상에 위계나 상태가 하나밖에 없는 경우에도 반드시 적용해야 합니다. 예를 들어, 에러 메시지 배경색이 하나의 위계와 상태만 있더라도 `system-1.status-error.background.1.default`와 같이 명시적으로 모든 계층을 표현해야 합니다.
 
 이러한 일관된 구조는:
 1. 토큰 이름만으로 그 용도와 맥락을 즉시 이해할 수 있게 합니다
 2. 자동화 도구에서 패턴 매칭을 통한 처리가 쉬워집니다
 3. 나중에 시스템이 확장될 때 쉽게 새로운 위계나 상태를 추가할 수 있습니다
 4. 개발자가 컴포넌트에서 토큰을 사용할 때 오류 가능성을 줄여줍니다
+5. 다양한 테마와 버전 간 전환이 용이해집니다
 
 #### 추가 시맨틱 토큰 카테고리
 
@@ -312,17 +318,17 @@ module.exports = {
        ```jsx
        // 시맨틱 토큰 활용 예
        <Button
-         background="primary.background.1.rest"
-         color="primary.foreground.1.rest"
+         background="system-1.primary.background.1.default"
+         color="system-1.primary.foreground.1.default"
          _hover={{
-           background: "primary.background.1.hovered"
+           background: "system-1.primary.background.1.hover"
          }}
          _active={{
-           background: "primary.background.1.pressed"
+           background: "system-1.primary.background.1.active"
          }}
          _disabled={{
-           background: "primary.background.1.disabled",
-           color: "primary.foreground.1.disabled"
+           background: "system-1.primary.background.1.disabled",
+           color: "system-1.primary.foreground.1.disabled"
          }}
        >
          Primary 버튼
@@ -333,8 +339,8 @@ module.exports = {
        ```jsx
        <Button 
          variant="secondary"
-         background="neutral.background.1.rest"
-         color="neutral.foreground.1.rest"
+         background="system-1.neutral.background.1.default"
+         color="system-1.neutral.foreground.1.default"
        >
          Secondary 버튼
        </Button>
@@ -347,12 +353,12 @@ module.exports = {
        ```jsx
        <Button 
          variant="outlined"
-         borderColor="primary.stroke.1.rest"
-         color="primary.foreground.inverse.rest"
+         borderColor="system-1.primary.stroke.1.default"
+         color="system-1.primary.foreground.inverse.default"
          background="transparent"
          _hover={{
-           borderColor: "primary.stroke.1.hovered",
-           background: "primary.background.1.hovered",
+           borderColor: "system-1.primary.stroke.1.hover",
+           background: "system-1.primary.background.1.hover",
            opacity: 0.1
          }}
        >
@@ -363,10 +369,10 @@ module.exports = {
        ```jsx
        <Button 
          variant="transparent"
-         color="primary.foreground.inverse.rest"
+         color="system-1.primary.foreground.inverse.default"
          background="transparent"
          _hover={{
-           color: "primary.foreground.inverse.hovered"
+           color: "system-1.primary.foreground.inverse.hover"
          }}
        >
          Transparent 버튼
@@ -379,9 +385,9 @@ module.exports = {
    ```jsx
    <Button 
      size="sm"
-     px="spacingHor.xs"
-     py="spacingVer.xxs"
-     fontSize="typography.body/normal.1.rest.fontSize"
+     px="system-1.spacingHor.xs"
+     py="system-1.spacingVer.xxs"
+     fontSize="system-1.typography.body/normal.1.default.fontSize"
    >
      작은 버튼
    </Button>
@@ -400,18 +406,18 @@ const Button = ({variant = 'primary', size = 'md', ...props}) => {
   const styles = {
     primary: {
       base: {
-        background: "primary.background.1.rest",
-        color: "primary.foreground.1.rest",
+        background: "system-1.primary.background.1.default",
+        color: "system-1.primary.foreground.1.default",
       },
       hover: {
-        background: "primary.background.1.hovered",
+        background: "system-1.primary.background.1.hover",
       },
       pressed: {
-        background: "primary.background.1.pressed",
+        background: "system-1.primary.background.1.active",
       },
       disabled: {
-        background: "primary.background.1.disabled",
-        color: "primary.foreground.1.disabled",
+        background: "system-1.primary.background.1.disabled",
+        color: "system-1.primary.foreground.1.disabled",
       }
     },
     // 다른 variant 스타일...
@@ -419,10 +425,10 @@ const Button = ({variant = 'primary', size = 'md', ...props}) => {
 
   const sizeStyles = {
     sm: {
-      paddingX: "spacingHor.xs",
-      paddingY: "spacingVer.xxs",
-      borderRadius: "radius.sm",
-      fontSize: "typography.body/normal.1.rest.fontSize",
+      paddingX: "system-1.spacingHor.xs",
+      paddingY: "system-1.spacingVer.xxs",
+      borderRadius: "system-1.radius.sm",
+      fontSize: "system-1.typography.body/normal.1.default.fontSize",
     },
     md: {
       // 중간 크기 스타일

@@ -140,101 +140,104 @@ Foundation 토큰은 디자인 시스템의 기본 값을 정의합니다. 이�
 
 ### Semantic 토큰 생성
 
-Semantic 토큰은 Microsoft Fluent Design System에서 영감을 받은 계층적 구조를 따릅니다. 색상 토큰은 다음과 같은 계층 구조를 가집니다:
+Semantic 토큰은 5단계 계층 구조를 따릅니다:
 
-1. **최상위 카테고리**: neutral, primary, status, shadow
-2. **용도 계층**: background, foreground, stroke
-3. **위계 계층**: 중요도에 따라 1, 2, 3... 등으로 표현
-4. **상태 계층**: rest, hovered, pressed, disabled
+1. **테마(Theme)**: 디자인 시스템 옵션/버전
+2. **상황(Context)**: neutral, primary, status 등의 사용 맥락
+3. **용도(Usage)**: background, foreground, stroke 등의 용도
+4. **위계(Hierarchy)**: 중요도에 따라 1, 2, 3 등으로 표현
+5. **상태(State)**: default, hover, focus, active, disabled 등의 상태
 
-이 구조를 따라 모든 색상 토큰은 "최상위카테고리.용도.위계.상태" 형식으로 일관되게 명명됩니다. 예를 들어, `primary.background.1.rest`는 주요 배경색의 가장 중요한 수준의 기본 상태를 의미합니다.
+이 구조를 따라 모든 시맨틱 토큰은 "테마.상황.용도.위계.상태" 형식으로 일관되게 명명됩니다. 예를 들어, `system-1.primary.background.1.default`는 시스템 1 테마의 주요 배경색의 가장 중요한 수준의 기본 상태를 의미합니다.
 
 **tokens/semantic.json:**
 ```json
 {
-  "neutral": {
-    "background": {
-      "1": {
-        "rest": "{color.grey.50}",
-        "hovered": "{color.grey.100}"
+  "system-1": {
+    "neutral": {
+      "background": {
+        "1": {
+          "default": "{color.grey.50}",
+          "hover": "{color.grey.100}"
+        },
+        "2": {
+          "default": "{color.grey.100}",
+          "hover": "{color.grey.200}"
+        }
       },
-      "2": {
-        "rest": "{color.grey.100}",
-        "hovered": "{color.grey.200}"
-      }
-    },
-    "foreground": {
-      "1": {
-        "rest": "{color.grey.900}",
-        "disabled": "{color.grey.500}"
-      }
-    },
-    "stroke": {
-      "1": {
-        "rest": "{color.grey.300}",
-        "hovered": "{color.grey.400}"
-      }
-    }
-  },
-  "primary": {
-    "background": {
-      "1": {
-        "rest": "{color.blue.500}",
-        "hovered": "{color.blue.600}",
-        "pressed": "{color.blue.700}",
-        "disabled": "rgba(33, 150, 243, 0.5)"
-      }
-    },
-    "foreground": {
-      "1": {
-        "rest": "{color.white}",
-        "disabled": "rgba(255, 255, 255, 0.7)"
-      }
-    },
-    "stroke": {
-      "1": {
-        "rest": "{color.blue.500}",
-        "hovered": "{color.blue.600}",
-        "pressed": "{color.blue.700}",
-        "disabled": "rgba(33, 150, 243, 0.5)"
-      }
-    }
-  },
-  "typography": {
-    "heading/1": {
-      "1": {
-        "rest": {
-          "fontSize": "{typography.fontSize.xl}",
-          "fontWeight": "{typography.fontWeight.bold}"
+      "foreground": {
+        "1": {
+          "default": "{color.grey.900}",
+          "disabled": "{color.grey.500}"
+        }
+      },
+      "stroke": {
+        "1": {
+          "default": "{color.grey.300}",
+          "hover": "{color.grey.400}"
         }
       }
     },
-    "body/normal": {
-      "1": {
-        "rest": {
-          "fontSize": "{typography.fontSize.md}",
-          "fontWeight": "{typography.fontWeight.regular}"
+    "primary": {
+      "background": {
+        "1": {
+          "default": "{color.blue.500}",
+          "hover": "{color.blue.600}",
+          "active": "{color.blue.700}",
+          "disabled": "rgba(33, 150, 243, 0.5)"
+        }
+      },
+      "foreground": {
+        "1": {
+          "default": "{color.white}",
+          "disabled": "rgba(255, 255, 255, 0.7)"
+        }
+      },
+      "stroke": {
+        "1": {
+          "default": "{color.blue.500}",
+          "hover": "{color.blue.600}",
+          "active": "{color.blue.700}",
+          "disabled": "rgba(33, 150, 243, 0.5)"
         }
       }
+    },
+    "typography": {
+      "heading/1": {
+        "1": {
+          "default": {
+            "fontSize": "{typography.fontSize.xl}",
+            "fontWeight": "{typography.fontWeight.bold}"
+          }
+        }
+      },
+      "body/normal": {
+        "1": {
+          "default": {
+            "fontSize": "{typography.fontSize.md}",
+            "fontWeight": "{typography.fontWeight.regular}"
+          }
+        }
+      }
+    },
+    "spacingVer": {
+      "none": "0",
+      "xxxs": "{spacing.xs}",
+      "sm": "{spacing.sm}",
+      "md": "{spacing.md}"
+    },
+    "spacingHor": {
+      "none": "0",
+      "xxxs": "{spacing.xs}",
+      "sm": "{spacing.sm}",
+      "md": "{spacing.md}"
+    },
+    "radius": {
+      "none": "{radius.none}",
+      "sm": "{radius.sm}",
+      "md": "{radius.md}",
+      "circular": "{radius.full}"
     }
-  },
-  "spacingVer": {
-    "none": "0",
-    "xxxs": "{spacing.xs}",
-    "sm": "{spacing.sm}",
-    "md": "{spacing.md}"
-  },
-  "spacingHor": {
-    "none": "0",
-    "xxxs": "{spacing.xs}",
-    "sm": "{spacing.sm}",
-    "md": "{spacing.md}"
-  },
-  "radius": {
-    "none": "{radius.none}",
-    "sm": "{radius.sm}",
-    "md": "{radius.md}",
-    "circular": "{radius.full}"
   }
 }
 ```
@@ -391,61 +394,61 @@ CSS 변수와 시맨틱 토큰을 활용하여 일관된 스타일을 적용합�
 
 /* 변형별 스타일 */
 .btn-primary.btn-solid {
-  background-color: var(--primary-background-1-rest);
-  color: var(--primary-foreground-1-rest);
-  border-radius: var(--radius-md);
+  background-color: var(--system-1-primary-background-1-default);
+  color: var(--system-1-primary-foreground-1-default);
+  border-radius: var(--system-1-radius-md);
 }
 
 .btn-primary.btn-solid:hover:not(:disabled) {
-  background-color: var(--primary-background-1-hovered);
+  background-color: var(--system-1-primary-background-1-hover);
 }
 
 .btn-primary.btn-solid:active:not(:disabled) {
-  background-color: var(--primary-background-1-pressed);
+  background-color: var(--system-1-primary-background-1-active);
 }
 
 .btn-primary.btn-solid:disabled {
-  background-color: var(--primary-background-1-disabled);
-  color: var(--primary-foreground-1-disabled);
+  background-color: var(--system-1-primary-background-1-disabled);
+  color: var(--system-1-primary-foreground-1-disabled);
   cursor: not-allowed;
 }
 
 .btn-primary.btn-outlined {
   background-color: transparent;
-  color: var(--primary-foreground-1-rest);
-  border: 1px solid var(--primary-stroke-1-rest);
-  border-radius: var(--radius-md);
+  color: var(--system-1-primary-foreground-1-default);
+  border: 1px solid var(--system-1-primary-stroke-1-default);
+  border-radius: var(--system-1-radius-md);
 }
 
 .btn-primary.btn-outlined:hover:not(:disabled) {
-  border-color: var(--primary-stroke-1-hovered);
+  border-color: var(--system-1-primary-stroke-1-hover);
   background-color: rgba(33, 150, 243, 0.05);
 }
 
 .btn-primary.btn-outlined:active:not(:disabled) {
-  border-color: var(--primary-stroke-1-pressed);
+  border-color: var(--system-1-primary-stroke-1-active);
   background-color: rgba(33, 150, 243, 0.1);
 }
 
 .btn-primary.btn-outlined:disabled {
-  border-color: var(--primary-stroke-1-disabled);
-  color: var(--primary-foreground-1-disabled);
+  border-color: var(--system-1-primary-stroke-1-disabled);
+  color: var(--system-1-primary-foreground-1-disabled);
   cursor: not-allowed;
 }
 
 /* 크기별 스타일 */
 .btn-sm {
-  padding: var(--spacingVer-xxxs) var(--spacingHor-sm);
+  padding: var(--system-1-spacingVer-xxxs) var(--system-1-spacingHor-sm);
   font-size: var(--typography-fontSize-sm);
 }
 
 .btn-md {
-  padding: var(--spacingVer-sm) var(--spacingHor-md);
+  padding: var(--system-1-spacingVer-sm) var(--system-1-spacingHor-md);
   font-size: var(--typography-fontSize-md);
 }
 
 .btn-lg {
-  padding: var(--spacingVer-md) var(--spacingHor-md);
+  padding: var(--system-1-spacingVer-md) var(--system-1-spacingHor-md);
   font-size: var(--typography-fontSize-lg);
 }
 
@@ -459,11 +462,11 @@ CSS 변수와 시맨틱 토큰을 활용하여 일관된 스타일을 적용합�
 }
 
 .btn-icon-left {
-  margin-right: var(--spacingHor-xxxs);
+  margin-right: var(--system-1-spacingHor-xxxs);
 }
 
 .btn-icon-right {
-  margin-left: var(--spacingHor-xxxs);
+  margin-left: var(--system-1-spacingHor-xxxs);
 }
 ```
 
