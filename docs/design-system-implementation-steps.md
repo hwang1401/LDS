@@ -30,6 +30,65 @@ design-system/
 └── package.json          # 의존성 관리
 ```
 
+### 서비스/테마 중심 프로젝트 구조 설계
+디자인 시스템을 버전별 또는 서비스별로 구성하는 구조로 변경합니다.
+
+```
+project/
+├── shared/                  # 모든 디자인 시스템이 공유하는 리소스
+│   └── tokens/              # 공통 파운데이션 토큰 정의
+│       └── foundation.json  # 공통으로 사용되는 파운데이션 토큰
+│
+├── design-systems/          # 디자인 시스템 정의
+│   ├── system-1/            # 디자인 시스템 1 (예: 서비스 A용)
+│   │   ├── tokens/          # 토큰 정의
+│   │   │   └── semantic.json # 시맨틱 토큰 (파운데이션 토큰 참조)
+│   │   ├── components/      # 컴포넌트 라이브러리
+│   │   │   ├── primitives/  # 기본 UI 요소
+│   │   │   ├── compounds/   # 복합 UI 요소
+│   │   │   └── patterns/    # 패턴
+│   │   ├── styles/          # 생성된 CSS 변수
+│   │   │   └── variables.css
+│   │   └── shared/          # 시스템 1 내부에서만 공유되는 리소스
+│   │       └── utils/       # 시스템 1 전용 유틸리티 함수
+│   ├── system-2/            # 디자인 시스템 2 (예: 서비스 B용)
+│   │   ├── tokens/          # 토큰 정의
+│   │   │   └── semantic.json # 시맨틱 토큰 (파운데이션 토큰 참조)
+│   │   ├── components/      # 컴포넌트 라이브러리
+│   │   │   ├── primitives/  # 기본 UI 요소
+│   │   │   ├── compounds/   # 복합 UI 요소
+│   │   │   └── patterns/    # 패턴
+│   │   ├── styles/          # 생성된 CSS 변수
+│   │   │   └── variables.css
+│   │   └── shared/          # 시스템 2 내부에서만 공유되는 리소스
+│   │       └── utils/       # 시스템 2 전용 유틸리티 함수
+├── services/                # 서비스 구현
+│   ├── service-a/           # 서비스 A (system-1 사용)
+│   │   ├── pages/           # 서비스 A의 모든 페이지
+│   │   │   ├── home/
+│   │   │   ├── products/
+│   │   │   └── about/
+│   │   └── index.js         # 서비스 A 진입점
+│   ├── service-b/           # 서비스 B (system-2 사용)
+│       └── ...
+├── scripts/
+│   └── build-tokens.js      # 토큰 변환 스크립트
+├── .storybook/             # 스토리북 설정
+└── package.json            # 의존성 관리
+```
+
+이 구조에서는:
+1. **공유 파운데이션 토큰**: 모든 디자인 시스템이 공통으로 사용하는 기본 파운데이션 토큰이 shared/tokens에 정의됩니다.
+2. **시스템별 시맨틱 토큰**: 각 디자인 시스템은 자체 시맨틱 토큰만 정의하며, 이 토큰들은 공유 파운데이션 토큰을 참조합니다.
+3. **독립적인 컴포넌트**: 각 디자인 시스템은 독립적인 컴포넌트 라이브러리를 가집니다.
+4. **서비스별 적용**: 각 서비스는 하나의 디자인 시스템만 사용하며, 모든 페이지는 동일한 디자인 시스템을 사용합니다.
+
+이 구조의 주요 이점:
+- **일관된 기본 토큰**: 모든 디자인 시스템이 동일한 파운데이션 토큰을 참조하여 기본적인 일관성 유지
+- **효율적인 유지보수**: 파운데이션 토큰 변경 시 모든 디자인 시스템에 자동 반영
+- **시스템별 커스터마이징**: 각 디자인 시스템은 동일한 파운데이션을 참조하면서도 고유한 시맨틱 토큰으로 독립적인 정체성 유지
+- **쉬운 확장성**: 신규 디자인 시스템 추가 시 기존 파운데이션을 재사용하면서 시맨틱 레벨에서만 차별화 가능
+
 ## 2. 초기 설정 단계
 
 ### 프로젝트 초기화
@@ -150,97 +209,207 @@ Semantic 토큰은 5단계 계층 구조를 따릅니다:
 
 이 구조를 따라 모든 시맨틱 토큰은 "테마.상황.용도.위계.상태" 형식으로 일관되게 명명됩니다. 예를 들어, `system-1.primary.background.1.default`는 시스템 1 테마의 주요 배경색의 가장 중요한 수준의 기본 상태를 의미합니다.
 
-**tokens/semantic.json:**
+이 다섯 단계 중에서 1-3단계(테마, 상황, 용도)는 디자인 시스템의 구조적 기반으로, 한번 정의한 후에는 변경을 최소화하는 것이 좋습니다. 이 부분은 시스템의 안정성과 일관성을 위한 핵심 뼈대 역할을 합니다. 반면에 4-5단계(위계, 상태)는 상대적으로 더 가변적이고 유연하게 다룰 수 있는 부분입니다. 특히 상태는 컴포넌트의 인터랙션에 따라 필요에 맞게 확장할 수 있습니다.
+
+### 시맨틱 토큰 생성의 핵심 원칙
+
+시맨틱 토큰 생성 시 반드시 지켜야 할 핵심 원칙이 있습니다:
+
+**절대 하드코딩하지 않기**: 시맨틱 토큰은 항상 파운데이션 토큰을 참조하여 정의해야 합니다. 하드코딩된 값(예: `rgba(0, 0, 0, 0.1)`, `0 2px 8px` 등)을 직접 사용하는 것은 절대 금지해야 합니다. 이는 디자인 시스템의 일관성을 해치고, 유지보수를 어렵게 만들기 때문입니다.
+
 ```json
+// 잘못된 예시 (하드코딩)
 {
-  "system-1": {
-    "neutral": {
-      "background": {
-        "1": {
-          "default": "{color.grey.50}",
-          "hover": "{color.grey.100}"
-        },
-        "2": {
-          "default": "{color.grey.100}",
-          "hover": "{color.grey.200}"
-        }
-      },
-      "foreground": {
-        "1": {
-          "default": "{color.grey.900}",
-          "disabled": "{color.grey.500}"
-        }
-      },
-      "stroke": {
-        "1": {
-          "default": "{color.grey.300}",
-          "hover": "{color.grey.400}"
-        }
-      }
-    },
-    "primary": {
-      "background": {
-        "1": {
-          "default": "{color.blue.500}",
-          "hover": "{color.blue.600}",
-          "active": "{color.blue.700}",
-          "disabled": "rgba(33, 150, 243, 0.5)"
-        }
-      },
-      "foreground": {
-        "1": {
-          "default": "{color.white}",
-          "disabled": "rgba(255, 255, 255, 0.7)"
-        }
-      },
-      "stroke": {
-        "1": {
-          "default": "{color.blue.500}",
-          "hover": "{color.blue.600}",
-          "active": "{color.blue.700}",
-          "disabled": "rgba(33, 150, 243, 0.5)"
-        }
-      }
-    },
-    "typography": {
-      "heading/1": {
-        "1": {
-          "default": {
-            "fontSize": "{typography.fontSize.xl}",
-            "fontWeight": "{typography.fontWeight.bold}"
-          }
-        }
-      },
-      "body/normal": {
-        "1": {
-          "default": {
-            "fontSize": "{typography.fontSize.md}",
-            "fontWeight": "{typography.fontWeight.regular}"
-          }
-        }
-      }
-    },
-    "spacingVer": {
-      "none": "0",
-      "xxxs": "{spacing.xs}",
-      "sm": "{spacing.sm}",
-      "md": "{spacing.md}"
-    },
-    "spacingHor": {
-      "none": "0",
-      "xxxs": "{spacing.xs}",
-      "sm": "{spacing.sm}",
-      "md": "{spacing.md}"
-    },
-    "radius": {
-      "none": "{radius.none}",
-      "sm": "{radius.sm}",
-      "md": "{radius.md}",
-      "circular": "{radius.full}"
+  "shadow": {
+    "card": "0 2px 8px rgba(0, 0, 0, 0.1)" // 하드코딩 - 금지!
+  }
+}
+
+// 올바른 예시 (파운데이션 토큰 참조)
+{
+  "shadow": {
+    "card": {
+      "x": "{shadow.x.none}",
+      "y": "{shadow.y.sm}",
+      "blur": "{shadow.blur.md}",
+      "spread": "{shadow.spread.none}",
+      "color": "{shadow.color.light}"
     }
   }
 }
 ```
+
+이렇게 파운데이션 토큰을 참조함으로써:
+1. 디자인 시스템의 일관성을 유지할 수 있습니다.
+2. 파운데이션 토큰 변경 시 연결된 모든 시맨틱 토큰이 자동으로 업데이트됩니다.
+3. 디자인 의도가 명확해지고, 유지보수성이 향상됩니다.
+4. 테마 변경이나 다크 모드 전환이 용이해집니다.
+
+### 시맨틱 컬러 토큰의 구조
+
+시맨틱 컬러 토큰의 구조를 명확히 설명하겠습니다. 앞서 설명한 5단계 계층 구조는 주로 **시맨틱 컬러 토큰**에 해당합니다. 그러나 디자인 시스템을 폴더 구조로 관리하기 때문에 컬러 토큰 네이밍에서는 "테마" 단계를 생략할 수 있습니다.
+
+따라서 실제 CSS 변수 이름은 다음과 같은 4단계 구조를 따릅니다:
+
+```
+상황.용도.위계.상태
+```
+
+예를 들어:
+- `--primary-background-1-default`
+- `--neutral-foreground-2-hover`
+- `--status-error-stroke-1-active`
+
+이렇게 하면 CSS 변수 이름이 더 간결해지고, 테마 전환도 더 쉬워집니다. 각 디자인 시스템(테마)은 독립적인 폴더와 CSS 파일로 관리되므로, 변수 이름에 테마 정보를 중복해서 포함할 필요가 없습니다.
+
+**tokens/semantic.json (디자인 시스템별 구조):**
+```json
+{
+  "neutral": {
+    "background": {
+      "1": {
+        "default": "{color.grey.50}",
+        "hover": "{color.grey.100}"
+      },
+      "2": {
+        "default": "{color.grey.100}",
+        "hover": "{color.grey.200}"
+      }
+    },
+    "foreground": {
+      "1": {
+        "default": "{color.grey.900}",
+        "disabled": "{color.grey.500}"
+      }
+    },
+    "stroke": {
+      "1": {
+        "default": "{color.grey.300}",
+        "hover": "{color.grey.400}"
+      }
+    }
+  },
+  "primary": {
+    "background": {
+      "1": {
+        "default": "{color.blue.500}",
+        "hover": "{color.blue.600}",
+        "active": "{color.blue.700}",
+        "disabled": "{color.blue.500-50}"
+      }
+    },
+    "foreground": {
+      "1": {
+        "default": "{color.white}",
+        "disabled": "{color.white-70}"
+      }
+    },
+    "stroke": {
+      "1": {
+        "default": "{color.blue.500}",
+        "hover": "{color.blue.600}",
+        "active": "{color.blue.700}",
+        "disabled": "{color.blue.500-50}"
+      }
+    }
+  }
+}
+```
+
+### 디자인 시스템 관리
+
+디자인 시스템은 **주로 버전별/서비스별로만 관리**됩니다. 페이지별로 디자인 시스템을 지정하는 경우는 실무에서 거의 없습니다. 대신, 하나의 서비스 내 모든 페이지는 동일한 디자인 시스템을 사용하여 일관된 사용자 경험을 제공합니다.
+
+예를 들어:
+- 서비스 A의 모든 페이지는 system-1 디자인 시스템 사용
+- 서비스 B의 모든 페이지는 system-2 디자인 시스템 사용
+
+이렇게 구성하면 각 서비스는 자신만의 브랜드 아이덴티티를 유지하면서도, 서비스 내에서는 일관된 디자인 경험을 제공할 수 있습니다.
+
+### 디자인 시스템 중심 프로젝트 구조
+
+디자인 시스템을 버전별/서비스별로 관리하는 구조는 다음과 같습니다:
+
+```
+project/
+├── design-systems/          # 디자인 시스템 정의
+│   ├── system-1/            # 디자인 시스템 1 (예: 서비스 A용)
+│   │   ├── tokens/          # 토큰 정의
+│   │   │   └── semantic.json # 시맨틱 토큰 (파운데이션 토큰 참조)
+│   │   ├── components/      # 컴포넌트 라이브러리
+│   │   │   ├── primitives/  # 기본 UI 요소
+│   │   │   ├── compounds/   # 복합 UI 요소
+│   │   │   └── patterns/    # 패턴
+│   │   ├── styles/          # 생성된 CSS 변수
+│   │   │   └── variables.css
+│   │   └── shared/          # 시스템 1 내부에서만 공유되는 리소스
+│   │       └── utils/       # 시스템 1 전용 유틸리티 함수
+│   ├── system-2/            # 디자인 시스템 2 (예: 서비스 B용)
+│   │   ├── tokens/          # 토큰 정의
+│   │   │   └── semantic.json # 시맨틱 토큰 (파운데이션 토큰 참조)
+│   │   ├── components/      # 컴포넌트 라이브러리
+│   │   │   ├── primitives/  # 기본 UI 요소
+│   │   │   ├── compounds/   # 복합 UI 요소
+│   │   │   └── patterns/    # 패턴
+│   │   ├── styles/          # 생성된 CSS 변수
+│   │   │   └── variables.css
+│   │   └── shared/          # 시스템 2 내부에서만 공유되는 리소스
+│   │       └── utils/       # 시스템 2 전용 유틸리티 함수
+├── services/                # 서비스 구현
+│   ├── service-a/           # 서비스 A (system-1 사용)
+│   │   ├── pages/           # 서비스 A의 모든 페이지
+│   │   │   ├── home/
+│   │   │   ├── products/
+│   │   │   └── about/
+│   │   └── index.js         # 서비스 A 진입점
+│   ├── service-b/           # 서비스 B (system-2 사용)
+│       └── ...
+├── scripts/
+│   └── build-tokens.js      # 토큰 변환 스크립트
+├── .storybook/             # 스토리북 설정
+└── package.json            # 의존성 관리
+```
+
+이 구조에서는:
+1. **디자인 시스템 독립성**: 각 디자인 시스템은 완전히 독립적으로 정의되며, 다른 디자인 시스템과 연동되지 않습니다.
+2. **시스템별 공유 리소스**: 각 디자인 시스템은 자체 shared 폴더를 가지며, 이는 해당 디자인 시스템 내부에서만 공유됩니다.
+3. **서비스별 일관성**: 각 서비스는 하나의 디자인 시스템만 사용하며, 서비스 내 모든 페이지는 동일한 디자인 시스템을 사용합니다.
+4. **빌드 프로세스**: 토큰 변환 스크립트는 각 디자인 시스템별로 토큰을 독립적으로 빌드합니다.
+
+### 디자인 시스템 적용 예시
+
+디자인 시스템 중심 구조에서는 다음과 같은 방식으로 디자인 시스템을 적용할 수 있습니다:
+
+```jsx
+// service-a/index.js
+import '../../design-systems/system-1/styles/variables.css';
+
+const ServiceA = () => (
+  <div>
+    {/* 모든 서비스 A 페이지는 system-1 디자인 시스템 적용 */}
+    <Router>
+      <Route path="/home" component={HomePage} />
+      <Route path="/products" component={ProductsPage} />
+      <Route path="/about" component={AboutPage} />
+    </Router>
+  </div>
+);
+
+// service-b/index.js
+import '../../design-systems/system-2/styles/variables.css';
+
+const ServiceB = () => (
+  <div>
+    {/* 모든 서비스 B 페이지는 system-2 디자인 시스템 적용 */}
+    <Router>
+      <Route path="/dashboard" component={DashboardPage} />
+      <Route path="/reports" component={ReportsPage} />
+    </Router>
+  </div>
+);
+```
+
+이 방식을 통해 각 서비스는 자신만의 디자인 시스템을 온전히 적용받으며, 서비스 내에서 일관된 사용자 경험을 제공합니다. 또한 각 디자인 시스템은 완전히 독립적으로 유지되므로, 시스템 간의 충돌이나 의존성 문제가 발생하지 않습니다.
 
 ## 4. 토큰 변환 시스템 구축
 
@@ -249,42 +418,49 @@ Style Dictionary는 디자인 토큰을 다양한 플랫폼에서 사용할 수 
 
 **config.js:**
 ```javascript
-module.exports = {
-  source: ['tokens/**/*.json'],
+const StyleDictionary = require('style-dictionary');
+
+const designSystems = ['system-1', 'system-2'];
+
+const getConfig = (system) => ({
+  source: [
+    "shared/tokens/foundation.json",
+    `design-systems/${system}/tokens/*.json`
+  ],
   platforms: {
     css: {
-      transformGroup: 'css',
-      buildPath: 'src/styles/',
+      transformGroup: "css",
+      buildPath: `design-systems/${system}/styles/`,
       files: [{
-        destination: 'variables.css',
-        format: 'css/variables',
+        destination: "variables.css",
+        format: "css/variables",
         options: {
           outputReferences: true // 참조 유지
         }
       }]
     },
     js: {
-      transformGroup: 'js',
-      buildPath: 'src/styles/',
+      transformGroup: "js",
+      buildPath: `design-systems/${system}/styles/`,
       files: [{
-        destination: 'tokens.js',
-        format: 'javascript/es6'
+        destination: "tokens.js",
+        format: "javascript/es6"
       }]
     }
   }
-};
+});
+
+// 각 디자인 시스템에 대한 설정 생성
+const configs = designSystems.map(getConfig);
+
+// 모든 플랫폼 빌드
+StyleDictionary.extend(configs[0]).buildAllPlatforms();
+StyleDictionary.extend(configs[1]).buildAllPlatforms();
+
+module.exports = configs;
 ```
 
-### 빌드 스크립트 설정
-package.json에 토큰 빌드 스크립트를 추가합니다.
-
-```json
-"scripts": {
-  "build:tokens": "style-dictionary build --config config.js",
-  "dev": "npm run build:tokens && start-storybook -p 6006",
-  "build": "npm run build:tokens && vite build"
-}
-```
+이 설정에서는 공유 파운데이션 토큰(`shared/tokens/foundation.json`)을 각 디자인 시스템의 토큰들과 함께 소스로 지정하여, 모든 디자인 시스템이 동일한 파운데이션 토큰을 기반으로 하면서도 자체적인 시맨틱 토큰을 가질 수 있게 합니다.
 
 ## 5. 컴포넌트 개발 단계
 
@@ -394,61 +570,61 @@ CSS 변수와 시맨틱 토큰을 활용하여 일관된 스타일을 적용합�
 
 /* 변형별 스타일 */
 .btn-primary.btn-solid {
-  background-color: var(--system-1-primary-background-1-default);
-  color: var(--system-1-primary-foreground-1-default);
-  border-radius: var(--system-1-radius-md);
+  background-color: var(--primary-background-1-default);
+  color: var(--primary-foreground-1-default);
+  border-radius: var(--radius-md);
 }
 
 .btn-primary.btn-solid:hover:not(:disabled) {
-  background-color: var(--system-1-primary-background-1-hover);
+  background-color: var(--primary-background-1-hover);
 }
 
 .btn-primary.btn-solid:active:not(:disabled) {
-  background-color: var(--system-1-primary-background-1-active);
+  background-color: var(--primary-background-1-active);
 }
 
 .btn-primary.btn-solid:disabled {
-  background-color: var(--system-1-primary-background-1-disabled);
-  color: var(--system-1-primary-foreground-1-disabled);
+  background-color: var(--primary-background-1-disabled);
+  color: var(--primary-foreground-1-disabled);
   cursor: not-allowed;
 }
 
 .btn-primary.btn-outlined {
   background-color: transparent;
-  color: var(--system-1-primary-foreground-1-default);
-  border: 1px solid var(--system-1-primary-stroke-1-default);
-  border-radius: var(--system-1-radius-md);
+  color: var(--primary-foreground-1-default);
+  border: 1px solid var(--primary-stroke-1-default);
+  border-radius: var(--radius-md);
 }
 
 .btn-primary.btn-outlined:hover:not(:disabled) {
-  border-color: var(--system-1-primary-stroke-1-hover);
+  border-color: var(--primary-stroke-1-hover);
   background-color: rgba(33, 150, 243, 0.05);
 }
 
 .btn-primary.btn-outlined:active:not(:disabled) {
-  border-color: var(--system-1-primary-stroke-1-active);
+  border-color: var(--primary-stroke-1-active);
   background-color: rgba(33, 150, 243, 0.1);
 }
 
 .btn-primary.btn-outlined:disabled {
-  border-color: var(--system-1-primary-stroke-1-disabled);
-  color: var(--system-1-primary-foreground-1-disabled);
+  border-color: var(--primary-stroke-1-disabled);
+  color: var(--primary-foreground-1-disabled);
   cursor: not-allowed;
 }
 
 /* 크기별 스타일 */
 .btn-sm {
-  padding: var(--system-1-spacingVer-xxxs) var(--system-1-spacingHor-sm);
+  padding: var(--spacingVer-xxxs) var(--spacingHor-sm);
   font-size: var(--typography-fontSize-sm);
 }
 
 .btn-md {
-  padding: var(--system-1-spacingVer-sm) var(--system-1-spacingHor-md);
+  padding: var(--spacingVer-sm) var(--spacingHor-md);
   font-size: var(--typography-fontSize-md);
 }
 
 .btn-lg {
-  padding: var(--system-1-spacingVer-md) var(--system-1-spacingHor-md);
+  padding: var(--spacingVer-md) var(--spacingHor-md);
   font-size: var(--typography-fontSize-lg);
 }
 
@@ -462,11 +638,11 @@ CSS 변수와 시맨틱 토큰을 활용하여 일관된 스타일을 적용합�
 }
 
 .btn-icon-left {
-  margin-right: var(--system-1-spacingHor-xxxs);
+  margin-right: var(--spacingHor-xxxs);
 }
 
 .btn-icon-right {
-  margin-left: var(--system-1-spacingHor-xxxs);
+  margin-left: var(--spacingHor-xxxs);
 }
 ```
 
@@ -538,17 +714,17 @@ export default Card;
 }
 
 .card-default {
-  background-color: var(--neutral-background-1-rest);
+  background-color: var(--neutral-background-1-default);
 }
 
 .card-elevated {
-  background-color: var(--neutral-background-1-rest);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--neutral-background-1-default);
+  box-shadow: var(--shadow-card-default);
 }
 
 .card-outlined {
-  background-color: var(--neutral-background-1-rest);
-  border: 1px solid var(--neutral-stroke-1-rest);
+  background-color: var(--neutral-background-1-default);
+  border: 1px solid var(--neutral-stroke-1-default);
 }
 
 .card-media {
@@ -561,7 +737,7 @@ export default Card;
 
 .card-subtitle {
   margin-top: var(--spacingVer-xxxs);
-  color: var(--neutral-foreground-2-rest);
+  color: var(--neutral-foreground-2-default);
 }
 
 .card-body {
@@ -572,7 +748,7 @@ export default Card;
   display: flex;
   justify-content: flex-end;
   padding: var(--spacingVer-sm) var(--spacingHor-md);
-  border-top: 1px solid var(--neutral-stroke-1-rest);
+  border-top: 1px solid var(--neutral-stroke-1-default);
 }
 ```
 
@@ -595,6 +771,50 @@ module.exports = {
   staticDirs: ['../public']
 };
 ```
+
+### 테마별 스토리북 구성
+
+각 디자인 시스템을 독립적으로 문서화하기 위해 스토리북을 테마별로 구성합니다. 이는 다음과 같은 이점을 제공합니다:
+
+1. **버전별 수정사항 파악**: 모든 관계자(디자이너, 개발자, PM 등)가 디자인 시스템의 변경 사항을 실시간으로 확인하고 이해할 수 있습니다.
+
+2. **테마별 디자인 시스템 구분 조회**: 각 서비스/테마별로 독립적인 디자인 시스템을 명확하게 구분하여 조회할 수 있습니다.
+
+다음은 테마별 스토리북 구성을 위한 설정 예시입니다:
+
+**.storybook/main.js:**
+```javascript
+module.exports = {
+  stories: [
+    '../design-systems/*/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'
+  ],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-a11y'
+  ],
+  framework: '@storybook/react',
+  staticDirs: ['../public'],
+  // 테마별로 구분된 스토리북 구성
+  refs: {
+    'system-1': {
+      title: '디자인 시스템 1',
+      url: process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:6006/system-1' 
+        : 'https://design-system.example.com/system-1'
+    },
+    'system-2': {
+      title: '디자인 시스템 2',
+      url: process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:6006/system-2' 
+        : 'https://design-system.example.com/system-2'
+    }
+  }
+};
+```
+
+이 설정을 통해 각 디자인 시스템은 독립적인 스토리북 인스턴스로 구성되며, 사용자는 상단 내비게이션을 통해 쉽게 디자인 시스템을 전환할 수 있습니다.
 
 ### 컴포넌트 스토리 작성
 각 컴포넌트에 대한 스토리를 작성하여 문서화합니다.
