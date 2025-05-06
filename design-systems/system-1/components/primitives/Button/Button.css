@@ -1,0 +1,286 @@
+@import '../../../styles/variables.css';
+
+/* 기본 버튼 스타일 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--foundation-typography-fontFamily-base);
+  font-weight: var(--semantic-typography-label\/1-medium-fontWeight);
+  letter-spacing: var(--semantic-typography-label\/1-medium-letterSpacing);
+  line-height: var(--semantic-typography-label\/1-medium-lineHeight);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  border-radius: var(--semantic-radius-md);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 버튼 크기 */
+.btn-xs {
+  padding: var(--semantic-spacingVer-xxs) var(--semantic-spacingHor-xs);
+  font-size: var(--semantic-typography-caption\/1-medium-fontSize);
+  line-height: var(--semantic-typography-caption\/1-medium-lineHeight);
+  letter-spacing: var(--semantic-typography-caption\/1-medium-letterSpacing);
+}
+
+.btn-sm {
+  padding: var(--semantic-spacingVer-xxs) var(--semantic-spacingHor-sm);
+  font-size: var(--semantic-typography-label\/2-medium-fontSize);
+  line-height: var(--semantic-typography-label\/2-medium-lineHeight);
+  letter-spacing: var(--semantic-typography-label\/2-medium-letterSpacing);
+}
+
+.btn-md {
+  padding: var(--semantic-spacingVer-xs) var(--semantic-spacingHor-sm);
+  font-size: var(--semantic-typography-label\/1-medium-fontSize);
+  line-height: var(--semantic-typography-label\/1-medium-lineHeight);
+  letter-spacing: var(--semantic-typography-label\/1-medium-letterSpacing);
+}
+
+.btn-lg {
+  padding: var(--semantic-spacingVer-xs) var(--semantic-spacingHor-lg);
+  font-size: var(--semantic-typography-body\/2-medium-fontSize);
+  line-height: var(--semantic-typography-body\/2-medium-lineHeight);
+  letter-spacing: var(--semantic-typography-body\/2-medium-letterSpacing);
+}
+
+.btn-xl {
+  padding: var(--semantic-spacingVer-sm) var(--semantic-spacingHor-lg);
+  font-size: var(--semantic-typography-body\/1-medium-fontSize);
+  line-height: var(--semantic-typography-body\/1-medium-lineHeight);
+  letter-spacing: var(--semantic-typography-body\/1-medium-letterSpacing);
+}
+
+/* 아이콘 크기 및 간격 */
+.btn-xs .btn-icon svg {
+  width: var(--semantic-size-xs);
+  height: var(--semantic-size-xs);
+}
+
+.btn-sm .btn-icon svg {
+  width: var(--semantic-size-sm);
+  height: var(--semantic-size-sm);
+}
+
+.btn-md .btn-icon svg {
+  width: var(--semantic-size-md);
+  height: var(--semantic-size-md);
+}
+
+.btn-lg .btn-icon svg {
+  width: var(--semantic-size-lg);
+  height: var(--semantic-size-lg);
+}
+
+.btn-xl .btn-icon svg {
+  width: var(--semantic-size-xl);
+  height: var(--semantic-size-xl);
+}
+
+.btn-icon-left {
+  margin-right: var(--semantic-spacingHor-xxs);
+}
+
+.btn-icon-right {
+  margin-left: var(--semantic-spacingHor-xxs);
+}
+
+.btn-icon-only {
+  padding: var(--semantic-spacingVer-xxs);
+}
+
+/* 종류별 스타일 - Primary */
+/* Filled */
+.btn-primary.btn-filled {
+  background-color: var(--semantic-color-primary-background-1-rest);
+  color: var(--semantic-color-primary-foreground-onColor-rest);
+}
+
+.btn-primary.btn-filled:hover:not(:disabled) {
+  background-color: var(--semantic-color-primary-background-1-hovered);
+}
+
+.btn-primary.btn-filled:active:not(:disabled) {
+  background-color: var(--semantic-color-primary-background-1-pressed);
+}
+
+.btn-primary.btn-filled:disabled {
+  background-color: var(--semantic-color-primary-background-1-disabled);
+  color: var(--semantic-color-primary-foreground-1-disabled);
+}
+
+/* Outlined */
+.btn-primary.btn-outlined {
+  background-color: transparent;
+  color: var(--semantic-color-primary-foreground-inverse-rest);
+  border-color: var(--semantic-color-primary-stroke-1-rest);
+}
+
+.btn-primary.btn-outlined:hover:not(:disabled) {
+  border-color: var(--semantic-color-primary-background-1-hovered);
+  background-color: var(--semantic-color-overlay-background-light-subtle);
+}
+
+.btn-primary.btn-outlined:active:not(:disabled) {
+  border-color: var(--semantic-color-primary-background-1-pressed);
+  background-color: var(--semantic-color-overlay-background-light-medium);
+}
+
+.btn-primary.btn-outlined:disabled {
+  border-color: var(--semantic-color-primary-background-1-disabled);
+  color: var(--semantic-color-primary-foreground-1-disabled);
+}
+
+/* Transparent */
+.btn-primary.btn-transparent {
+  background-color: transparent;
+  color: var(--semantic-color-primary-foreground-inverse-rest);
+  border-color: transparent;
+}
+
+.btn-primary.btn-transparent:hover:not(:disabled) {
+  background-color: var(--semantic-color-overlay-background-light-subtle);
+}
+
+.btn-primary.btn-transparent:active:not(:disabled) {
+  background-color: var(--semantic-color-overlay-background-light-medium);
+}
+
+.btn-primary.btn-transparent:disabled {
+  color: var(--semantic-color-primary-foreground-1-disabled);
+}
+
+/* 종류별 스타일 - Secondary */
+/* Filled */
+.btn-secondary.btn-filled {
+  background-color: var(--semantic-color-neutral-background-2-rest);
+  color: var(--semantic-color-neutral-foreground-2-rest);
+}
+
+.btn-secondary.btn-filled:hover:not(:disabled) {
+  background-color: var(--semantic-color-neutral-background-2-hovered);
+}
+
+.btn-secondary.btn-filled:active:not(:disabled) {
+  background-color: var(--semantic-color-neutral-background-2-pressed);
+}
+
+.btn-secondary.btn-filled:disabled {
+  background-color: var(--semantic-color-neutral-background-2-disabled);
+  color: var(--semantic-color-neutral-foreground-1-disabled);
+}
+
+/* Outlined */
+.btn-secondary.btn-outlined {
+  background-color: transparent;
+  color: var(--semantic-color-neutral-foreground-1-rest);
+  border-color: var(--semantic-color-neutral-stroke-1-rest);
+}
+
+.btn-secondary.btn-outlined:hover:not(:disabled) {
+  border-color: var(--semantic-color-neutral-background-1-hovered);
+  background-color: var(--semantic-color-overlay-background-light-subtle);
+}
+
+.btn-secondary.btn-outlined:active:not(:disabled) {
+  border-color: var(--semantic-color-neutral-background-1-pressed);
+  background-color: var(--semantic-color-overlay-background-light-medium);
+}
+
+.btn-secondary.btn-outlined:disabled {
+  border-color: var(--semantic-color-neutral-background-1-disabled);
+  color: var(--semantic-color-neutral-foreground-1-disabled);
+}
+
+/* Transparent */
+.btn-secondary.btn-transparent {
+  background-color: transparent;
+  color: var(--semantic-color-neutral-foreground-1-rest);
+  border-color: transparent;
+}
+
+.btn-secondary.btn-transparent:hover:not(:disabled) {
+  background-color: var(--semantic-color-overlay-background-light-subtle);
+}
+
+.btn-secondary.btn-transparent:active:not(:disabled) {
+  background-color: var(--semantic-color-overlay-background-light-medium);
+}
+
+.btn-secondary.btn-transparent:disabled {
+  color: var(--semantic-color-neutral-foreground-1-disabled);
+}
+
+/* 종류별 스타일 - CTA */
+/* Filled */
+.btn-cta.btn-filled {
+  background-color: var(--semantic-color-status-background-success-rest);
+  color: var(--semantic-color-primary-foreground-onColor-rest);
+}
+
+.btn-cta.btn-filled:hover:not(:disabled) {
+  background-color: var(--semantic-color-status-stroke-success-rest);
+}
+
+.btn-cta.btn-filled:active:not(:disabled) {
+  background-color: var(--semantic-color-status-foreground-success-rest);
+}
+
+.btn-cta.btn-filled:disabled {
+  background-color: var(--semantic-color-status-background-success-rest);
+  opacity: 0.5;
+}
+
+/* Outlined */
+.btn-cta.btn-outlined {
+  background-color: transparent;
+  color: var(--semantic-color-status-foreground-success-rest);
+  border-color: var(--semantic-color-status-stroke-success-rest);
+}
+
+.btn-cta.btn-outlined:hover:not(:disabled) {
+  border-color: var(--semantic-color-status-foreground-success-rest);
+  background-color: var(--semantic-color-overlay-background-light-subtle);
+}
+
+.btn-cta.btn-outlined:active:not(:disabled) {
+  border-color: var(--semantic-color-status-foreground-success-rest);
+  background-color: var(--semantic-color-overlay-background-light-medium);
+}
+
+.btn-cta.btn-outlined:disabled {
+  border-color: var(--semantic-color-status-stroke-success-rest);
+  color: var(--semantic-color-status-foreground-success-rest);
+  opacity: 0.5;
+}
+
+/* Transparent */
+.btn-cta.btn-transparent {
+  background-color: transparent;
+  color: var(--semantic-color-status-foreground-success-rest);
+  border-color: transparent;
+}
+
+.btn-cta.btn-transparent:hover:not(:disabled) {
+  background-color: var(--semantic-color-overlay-background-light-subtle);
+}
+
+.btn-cta.btn-transparent:active:not(:disabled) {
+  background-color: var(--semantic-color-overlay-background-light-medium);
+}
+
+.btn-cta.btn-transparent:disabled {
+  color: var(--semantic-color-status-foreground-success-rest);
+  opacity: 0.5;
+}
+
+/* 추가 레이아웃 스타일 */
+.btn-full-width {
+  width: 100%;
+} 
