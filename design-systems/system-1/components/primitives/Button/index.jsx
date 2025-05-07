@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Icon from '../../../../../shared/components/Icon';
 import './Button.css';
 
 /**
@@ -9,67 +11,77 @@ import './Button.css';
  * @param {'xs'|'sm'|'md'|'lg'|'xl'} props.size - 버튼 크기
  * @param {boolean} props.fullWidth - 전체 너비 적용 여부
  * @param {boolean} props.disabled - 비활성화 여부
- * @param {React.ReactNode} props.leftIcon - 왼쪽 아이콘
- * @param {React.ReactNode} props.rightIcon - 오른쪽 아이콘
+ * @param {string} props.leftIconName - 왼쪽 아이콘 이름
+ * @param {string} props.rightIconName - 오른쪽 아이콘 이름
  * @param {React.ReactNode} props.children - 버튼 내용
  * @param {function} props.onClick - 클릭 이벤트 핸들러
  */
-export const Button = ({
+const Button = ({
   variant = 'primary',
   style = 'filled',
   size = 'md',
   fullWidth = false,
   disabled = false,
-  leftIcon,
-  rightIcon,
+  leftIconName,
+  rightIconName,
   children,
   onClick,
-  ...props
+  ...rest
 }) => {
-  // 텍스트만 있는지, 아이콘만 있는지, 둘 다 있는지 확인
-  const hasText = children !== undefined && children !== null;
-  const hasLeftIcon = leftIcon !== undefined;
-  const hasRightIcon = rightIcon !== undefined;
-  const iconOnly = !hasText && (hasLeftIcon || hasRightIcon);
-
-  // 클래스 이름 생성
-  const classNames = [
+  const buttonClasses = [
     'btn',
     `btn-${variant}`,
     `btn-${style}`,
     `btn-${size}`,
-    iconOnly ? 'btn-icon-only' : '',
     fullWidth ? 'btn-full-width' : '',
   ].filter(Boolean).join(' ');
 
-  // 클릭 핸들러
-  const handleClick = (e) => {
-    if (disabled) return;
-    if (onClick) onClick(e);
+  // 아이콘 크기는 버튼 크기보다 한 단계 작게 설정
+  const getIconSize = (btnSize) => {
+    const sizeMap = {
+      xs: 'xs',
+      sm: 'xs',
+      md: 'sm',
+      lg: 'md',
+      xl: 'lg'
+    };
+    return sizeMap[btnSize] || 'sm';
   };
+
+  const iconSize = getIconSize(size);
 
   return (
     <button 
-      className={classNames} 
+      className={buttonClasses} 
       disabled={disabled}
-      onClick={handleClick}
-      {...props}
+      onClick={onClick}
+      {...rest}
     >
-      {hasLeftIcon && (
-        <span className={`btn-icon btn-icon-left ${iconOnly ? 'icon-only' : ''}`}>
-          {leftIcon}
+      {leftIconName && (
+        <span className="btn-icon btn-icon-left">
+          <Icon name={leftIconName} size={iconSize} />
         </span>
       )}
-      
-      {hasText && <span className="btn-text">{children}</span>}
-      
-      {hasRightIcon && (
-        <span className={`btn-icon btn-icon-right ${iconOnly ? 'icon-only' : ''}`}>
-          {rightIcon}
+      <span className="btn-text">{children}</span>
+      {rightIconName && (
+        <span className="btn-icon btn-icon-right">
+          <Icon name={rightIconName} size={iconSize} />
         </span>
       )}
     </button>
   );
+};
+
+Button.propTypes = {
+  variant: PropTypes.oneOf(['primary', 'secondary', 'cta']),
+  style: PropTypes.oneOf(['filled', 'outlined', 'transparent']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  fullWidth: PropTypes.bool,
+  disabled: PropTypes.bool,
+  leftIconName: PropTypes.string,
+  rightIconName: PropTypes.string,
+  children: PropTypes.node,
+  onClick: PropTypes.func
 };
 
 export default Button; 

@@ -1,0 +1,49 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+
+/* 현재 테마 색상을 상속 */
+.icon svg {
+  fill: currentColor;
+}
+
+/* 크기별 여백 조정 */
+.icon-xs {
+  margin: 2px;
+}
+
+.icon-sm {
+  margin: 3px;
+}
+
+.icon-md {
+  margin: 4px;
+}
+
+.icon-lg {
+  margin: 5px;
+}
+
+.icon-xl {
+  margin: 6px;
+}
+
+/* 호버 효과 */
+.icon:hover {
+  opacity: 0.8;
+}
+
+/* 버튼 내 아이콘 위치 조정 */
+button .icon, 
+.btn .icon {
+  vertical-align: text-bottom;
+}
+
+/* 링크 내 아이콘 위치 조정 */
+a .icon {
+  vertical-align: text-top;
+} 
