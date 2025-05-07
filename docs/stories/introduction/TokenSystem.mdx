@@ -1,0 +1,123 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Concepts/토큰 시스템" />
+
+# 토큰 시스템
+
+토큰 시스템은 루미르 디자인 시스템의 핵심 기반으로, 일관된 디자인 언어를 유지하고 디자인-개발 간 협업을 원활하게 하는 역할을 합니다.
+
+## 토큰 계층 구조
+
+루미르 디자인 시스템의 토큰은 두 가지 주요 계층으로 구성됩니다:
+
+### 1. Foundation 토큰
+
+Foundation 토큰은 디자인 시스템의 가장 기본적인 원시 값을 정의합니다. 이는 직접 사용하기보다는 Semantic 토큰을 통해 참조되는 값입니다.
+
+**특징:**
+- 원시 디자인 값 (색상 코드, 크기, 간격 등) 정의
+- 디자인 시스템의 기초 역할
+- 직접 사용보다는 시맨틱 토큰을 통해 참조
+
+**주요 Foundation 토큰 카테고리:**
+
+| 카테고리 | 설명 | 예시 |
+|---------|------|------|
+| 색상 | 디자인 시스템의 기본 색상 팔레트 | `--foundation-color-blue-light-80` |
+| 타이포그래피 | 글꼴, 크기, 두께, 행간 등 | `--foundation-typography-fontSize-160` |
+| 간격 | 여백, 패딩, 마진 등의 공간 값 | `--foundation-spacing-80-horizontal` |
+| 반경 | 모서리 둥글기 정도 | `--foundation-radius-40` |
+| 그림자 | 요소의 깊이감을 나타내는 그림자 | `--foundation-shadow-20` |
+
+### 2. Semantic 토큰
+
+Semantic 토큰은 Foundation 토큰에 실제 사용 맥락과 의미를 부여한 토큰입니다. UI 요소의 목적과 상태에 따라 적절한 값을 제공합니다.
+
+**특징:**
+- 실제 UI 요소와 상태에 맞춰 의미있는 이름 부여
+- Foundation 토큰을 참조
+- 디자인 변경 시 이 토큰만 수정하면 일관된 변경 가능
+
+**주요 Semantic 토큰 카테고리:**
+
+| 카테고리 | 설명 | 예시 |
+|---------|------|------|
+| 색상 | UI 요소별, 상태별 색상 | `--semantic-color-primary-background-1-rest` |
+| 타이포그래피 | 제목, 본문 등 용도별 텍스트 스타일 | `--semantic-typography-body/1-regular-fontSize` |
+| 간격 | 용도에 따른 간격 정의 | `--semantic-spacingHor-global-md` |
+| 반경 | 요소별 모서리 둥글기 | `--semantic-radius-global-md` |
+| 그림자 | 상태 및 계층에 따른 그림자 | `--semantic-shadow-component-resting` |
+
+## 토큰 네이밍 규칙
+
+루미르 디자인 시스템의 토큰은 일관된 네이밍 규칙을 따릅니다:
+
+### Foundation 토큰:
+```
+--foundation-[카테고리]-[속성]-[값]
+```
+
+예시:
+- `--foundation-color-blue-light-50`: 파란색 계열의 밝은 색상, 중간 값(50)
+- `--foundation-spacing-80-horizontal`: 가로 방향 8px 간격
+
+### Semantic 토큰:
+```
+--semantic-[카테고리]-[요소/맥락]-[상태]
+```
+
+예시:
+- `--semantic-color-primary-background-1-rest`: 기본 상태의 주요 배경색 1
+- `--semantic-spacingHor-global-md`: 글로벌 중간 크기 가로 간격
+
+## 토큰 사용 가이드라인
+
+### 올바른 토큰 사용
+
+1. **Semantic 토큰 우선 사용**
+   - 직접적인 Foundation 토큰 사용은 지양하고, Semantic 토큰을 우선 사용
+   - `color: var(--semantic-color-primary-foreground-1-rest)` ✅
+   - `color: var(--foundation-color-blue-light-50)` ❌
+
+2. **상태 관리**
+   - 요소의 상태(rest, hover, pressed, selected, disabled 등)에 맞는 토큰 사용
+   - 상호작용 요소는 모든 상태에 대한 스타일 정의 필요
+
+3. **반응형 디자인**
+   - 화면 크기에 따라 적절한 토큰 선택
+   - 모바일에서는 더 작은 간격 토큰 고려
+
+### CSS 변수로 토큰 적용
+
+```css
+.my-button {
+  background-color: var(--semantic-color-primary-background-1-rest);
+  padding: var(--semantic-spacingVer-global-xs) var(--semantic-spacingHor-global-md);
+  border-radius: var(--semantic-radius-global-sm);
+  box-shadow: var(--semantic-shadow-component-resting);
+  font-size: var(--semantic-typography-body/1-regular-fontSize);
+  font-weight: var(--semantic-typography-body/1-regular-fontWeight);
+}
+
+.my-button:hover {
+  background-color: var(--semantic-color-primary-background-1-hovered);
+  box-shadow: var(--semantic-shadow-component-raised);
+}
+```
+
+## 토큰 시스템의 이점
+
+- **일관성**: 모든 제품과 플랫폼에서 일관된 디자인 언어 유지
+- **효율성**: 디자인 변경 시 토큰만 수정하면 전체 적용
+- **협업**: 디자이너와 개발자 간 명확한 커뮤니케이션 제공
+- **확장성**: 새로운 제품이나 테마 추가가 용이
+- **접근성**: 접근성 기준(WCAG)을 충족하는 값들로 구성 가능
+
+## 토큰 시스템 확장
+
+팀이나 프로젝트의 특정 요구사항에 맞게 토큰 시스템을 확장할 수 있습니다. 확장 시에는 다음 원칙을 따릅니다:
+
+- 기존 네이밍 규칙과 구조 준수
+- 필요한 경우에만 새로운 Foundation 토큰 추가
+- 가능한 기존 Foundation 토큰을 활용한 새로운 Semantic 토큰 정의
+- 모든 새 토큰은 문서화 
