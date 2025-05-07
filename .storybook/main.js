@@ -15,7 +15,8 @@ const config = {
     options: {}
   },
   staticDirs: [
-    "../public"
+    "../public",
+    { from: '../public/shared', to: '/shared' }
   ],
   /* 먼저 refs 설정을 제거하고 기본 스토리북이 정상 작동하는지 확인합니다
   refs: {
@@ -49,6 +50,13 @@ const config = {
         }
       }
     });
+
+    // SVG 파일을 위한 로더 설정 추가
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
+
     return config;
   }
 };

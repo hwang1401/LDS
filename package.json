@@ -12,7 +12,8 @@
     "build": "npm run build:tokens && storybook build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "npm run build:tokens && storybook build"
+    "copy-icons": "cp -r public/shared/tokens/icons storybook-static/shared/tokens/",
+    "build-storybook": "npm run build:tokens && storybook build && npm run copy-icons"
   },
   "repository": {
     "type": "git",
