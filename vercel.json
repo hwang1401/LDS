@@ -4,6 +4,5 @@
   "devCommand": "npm run storybook",
   "installCommand": "npm install",
   "framework": null,
-  "outputDirectory": "./storybook-static",
-  "nodeVersion": "18.x"
+  "outputDirectory": "./storybook-static"
 } 
