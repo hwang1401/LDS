@@ -1,0 +1,166 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Concepts/컴포넌트/개발 원칙" />
+
+# 컴포넌트 개발 원칙
+
+루미르 디자인 시스템의 컴포넌트는 일관된 개발 원칙과 패턴을 따라 구축됩니다. 이 원칙들은 컴포넌트의 재사용성, 확장성, 일관성을 보장합니다.
+
+## 컴포넌트 계층 구조
+
+루미르 디자인 시스템의 컴포넌트는 세 가지 계층으로 구성됩니다:
+
+### 1. Primitives (기본 요소)
+
+가장 기본적인 UI 구성 요소로, 더 이상 분해될 수 없는 기본 블록입니다.
+
+- **예시**: Button, TextField, Icon, Checkbox, Radio, Switch 등
+- **특징**: 단일 책임 원칙을 따르며, 단순하고 집중된 기능을 제공
+- **폴더 위치**: `/design-systems/system-1/components/primitives/`
+
+### 2. Compounds (복합 요소)
+
+두 개 이상의 Primitive 컴포넌트를 조합하여 만든 복합 요소입니다.
+
+- **예시**: ComboBox, SearchField, Dialog, Toast, Card 등
+- **특징**: 여러 Primitive 컴포넌트의 조합으로 더 복잡한 기능 제공
+- **폴더 위치**: `/design-systems/system-1/components/compounds/`
+
+### 3. Patterns (패턴)
+
+사용자 인터페이스의 일반적인 패턴과 레이아웃을 구현한 요소입니다.
+
+- **예시**: Form, Navigation, DataGrid, Pagination 등
+- **특징**: 전체 UI 영역이나 페이지의 일부를 구성하는 복잡한
+- **폴더 위치**: `/design-systems/system-1/components/patterns/`
+
+## 컴포넌트 설계 원칙
+
+### 1. 일관된 구조
+
+모든 컴포넌트는 동일한 파일 구조를 유지합니다:
+
+```
+Button/
+├── index.jsx        # 컴포넌트 정의
+├── Button.css       # 스타일 정의
+└── Button.stories.jsx  # 스토리북 스토리
+```
+
+### 2. 명확한 프로퍼티 정의
+
+- 모든 props에 명확한 타입 정의 및 기본값 설정
+- PropTypes를 사용한 타입 검증
+- 필수 props와 선택적 props 구분
+
+```jsx
+Button.propTypes = {
+  variant: PropTypes.oneOf(['primary', 'secondary', 'cta']),
+  style: PropTypes.oneOf(['filled', 'outlined', 'transparent']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  fullWidth: PropTypes.bool,
+  disabled: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func
+};
+
+Button.defaultProps = {
+  variant: 'primary',
+  style: 'filled',
+  size: 'md',
+  fullWidth: false,
+  disabled: false,
+  onClick: () => {}
+};
+```
+
+### 3. Semantic 토큰 사용
+
+- 하드코딩된 값 대신 항상 Semantic 토큰 참조
+- CSS 변수를 통한 스타일 정의
+
+```css
+.btn-primary {
+  background-color: var(--semantic-color-primary-background-1-rest);
+  color: var(--semantic-color-primary-foreground-1-rest);
+}
+
+.btn-primary:hover {
+  background-color: var(--semantic-color-primary-background-1-hover);
+}
+```
+
+### 4. 접근성 (A11y) 고려
+
+- ARIA 속성 적절히 사용
+- 키보드 네비게이션 지원
+- 충분한 색상 대비 유지
+- 스크린 리더 호환성 확보
+
+```jsx
+<button
+  className={buttonClasses}
+  disabled={disabled}
+  onClick={onClick}
+  aria-label={ariaLabel}
+  {...rest}
+>
+  {children}
+</button>
+```
+
+### 5. 확장성
+
+- 컴포넌트는 확장이 쉽고 다양한 사용 사례에 적용 가능하게 설계
+- `className` 및 기타 HTML 속성 전달 지원
+
+```jsx
+const Button = ({
+  variant,
+  style,
+  size,
+  className,
+  ...rest
+}) => {
+  const buttonClasses = `btn btn-${variant} btn-${style} btn-${size} ${className}`;
+  
+  return (
+    <button
+      className={buttonClasses}
+      {...rest}
+    >
+      {children}
+    </button>
+  );
+};
+```
+
+## 컴포넌트 문서화
+
+모든 컴포넌트는 다음 항목을 포함하는 문서화가 필요합니다:
+
+1. **용도 설명**: 컴포넌트의 목적과 적절한 사용 상황
+2. **Props 설명**: 모든 props의 의미, 타입, 기본값
+3. **예제**: 다양한 사용 예시
+4. **가이드라인**: 사용 시 주의사항 및 모범 사례
+5. **접근성 정보**: 접근성 관련 고려사항
+
+이러한 문서화는 스토리북의 MDX 파일과 컴포넌트 코드 내의 JSDoc 주석을 통해 제공됩니다.
+
+## 컴포넌트 테스트
+
+모든 컴포넌트는 다음과 같은 테스트를 통과해야 합니다:
+
+1. **기능 테스트**: 컴포넌트의 기능이 올바르게 작동하는지 확인
+2. **시각적 테스트**: UI가 디자인 사양과 일치하는지 확인
+3. **접근성 테스트**: 접근성 요구사항을 준수하는지 확인
+4. **크로스 브라우저 테스트**: 다양한 브라우저에서 일관되게 작동하는지 확인
+
+## 컴포넌트 변경 관리
+
+컴포넌트 변경 시 다음 원칙을 준수합니다:
+
+1. **하위 호환성 유지**: 기존 사용자에게 영향을 미치지 않도록 설계
+2. **변경 문서화**: 모든 변경 사항은 명확하게 문서화
+3. **점진적 채택**: 새로운 기능은 기존 기능을 대체하기 전에 나란히 제공
+4. **버전 관리**: 주요 변경은 메이저 버전 업데이트에서만 진행 

@@ -1,0 +1,166 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Concepts/디자인 토큰/Foundation 토큰" />
+
+# Foundation 토큰
+
+Foundation 토큰은 디자인 시스템의 기초가 되는 순수한 디자인 값들의 모음입니다. 의미를 부여하지 않은 원시 디자인 값(색상 코드, 크기, 간격 등)만을 정의합니다.
+
+## 토큰 구조
+
+Foundation 토큰은 다음과 같은 카테고리로 구성됩니다:
+
+### 색상 (Color)
+
+기본 색상 팔레트를 정의합니다. 색상 값은 RGB, HEX, HSL 등의 형태로 저장됩니다.
+
+```json
+"color": {
+  "blue": {
+    "light": {
+      "20": "#E3F2FD",
+      "40": "#BBDEFB",
+      "60": "#64B5F6",
+      "80": "#42A5F5",
+      "100": "#2196F3"
+    }
+  },
+  "grey": {
+    "light": {
+      "0": "#FFFFFF",
+      "20": "#F5F5F5",
+      "40": "#EEEEEE",
+      "60": "#E0E0E0",
+      "80": "#BDBDBD",
+      "100": "#9E9E9E"
+    }
+  },
+  "transparent": {
+    "light": {
+      "50": "rgba(0, 0, 0, 0.05)",
+      "100": "rgba(0, 0, 0, 0.1)",
+      "200": "rgba(0, 0, 0, 0.2)"
+    }
+  }
+}
+```
+
+### 타이포그래피 (Typography)
+
+폰트 패밀리, 크기, 두께, 행간 등의 텍스트 관련 속성을 정의합니다.
+
+```json
+"typography": {
+  "fontFamily": {
+    "base": "Pretendard, sans-serif"
+  },
+  "fontSize": {
+    "120": "12px",
+    "140": "14px",
+    "160": "16px",
+    "240": "24px",
+    "320": "32px"
+  },
+  "fontWeight": {
+    "400": "400",
+    "500": "500",
+    "600": "600",
+    "700": "700"
+  },
+  "lineHeight": {
+    "14": "14px",
+    "16": "16px",
+    "18": "18px"
+  }
+}
+```
+
+### 간격 (Spacing)
+
+여백과 간격 관련 값을 정의합니다.
+
+```json
+"spacing": {
+  "0": {
+    "vertical": "0px",
+    "horizontal": "0px"
+  },
+  "40": {
+    "vertical": "4px",
+    "horizontal": "4px"
+  },
+  "80": {
+    "vertical": "8px",
+    "horizontal": "8px"
+  },
+  "160": {
+    "vertical": "16px",
+    "horizontal": "16px"
+  }
+}
+```
+
+### 크기 (Size)
+
+아이콘, 컴포넌트 등의 크기 관련 값을 정의합니다.
+
+```json
+"size": {
+  "0": "0px",
+  "40": "4px",
+  "80": "8px",
+  "120": "12px",
+  "160": "16px",
+  "200": "20px"
+}
+```
+
+### 높이 (Height)
+
+컴포넌트의 높이 관련 값을 정의합니다.
+
+```json
+"height": {
+  "120": "12px",
+  "160": "16px",
+  "200": "20px",
+  "240": "24px"
+}
+```
+
+### 둥근 모서리 (Radius)
+
+모서리 반경 관련 값을 정의합니다.
+
+```json
+"radius": {
+  "0": "0px",
+  "20": "2px",
+  "40": "4px",
+  "60": "6px",
+  "80": "8px",
+  "100": "10px",
+  "1000": "9999px"
+}
+```
+
+## 토큰 네이밍 규칙
+
+Foundation 토큰은 모두 숫자 기반의 명확한 네이밍 규칙을 따릅니다:
+
+- 10단위 숫자로 스케일 표현 (10, 20, ... 100, 200 등)
+- 값이 클수록 숫자 증가 (예: 폰트 크기 120 = 12px, 240 = 24px)
+- 특별한 경우 1000 등의 큰 값 사용 (예: radius.1000 = pill/circular 형태)
+
+## 토큰 사용 예시
+
+Foundation 토큰은 직접 사용하지 않고, Semantic 토큰을 통해 사용합니다. 하지만 개발자가 참조용으로 다음과 같이 사용할 수 있습니다:
+
+```css
+/* CSS 변수 형태로 사용 */
+.element {
+  color: var(--foundation-color-blue-light-100);
+  font-size: var(--foundation-typography-fontSize-160);
+  padding: var(--foundation-spacing-80-horizontal);
+}
+``` 

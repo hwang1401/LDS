@@ -1,0 +1,196 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Concepts/디자인 토큰/Semantic 토큰" />
+
+# Semantic 토큰
+
+Semantic 토큰은 Foundation 토큰에 의미를 부여한 것으로, 실제 디자인 맥락과 용도에 따라 사용할 수 있도록 구조화된 값입니다. 이 토큰들은 디자인 시스템의 실제 사용 현장에서 활용됩니다.
+
+## 토큰 구조 및 네이밍 원칙
+
+Semantic 토큰은 다음과 같은 구조를 가집니다:
+
+```
+[카테고리].[속성].[용도].[상태]
+```
+
+예를 들어: `color.primary.background.hover`, `spacing.button.padding.horizontal`
+
+## 주요 Semantic 토큰 카테고리
+
+### 색상 (Color)
+
+색상 토큰은 UI 요소의 용도와 상태에 따라 의미있는 이름을 갖습니다.
+
+```json
+"color": {
+  "primary": {
+    "background": {
+      "1": {
+        "rest": "{foundation.color.blue.light.100}",
+        "hover": "{foundation.color.blue.light.80}",
+        "pressed": "{foundation.color.blue.light.60}",
+        "disabled": "{foundation.color.blue.light.40}"
+      }
+    },
+    "foreground": {
+      "1": {
+        "rest": "{foundation.color.white}",
+        "disabled": "rgba(255, 255, 255, 0.5)"
+      }
+    }
+  },
+  "secondary": {
+    "background": {
+      "1": {
+        "rest": "{foundation.color.grey.light.20}",
+        "hover": "{foundation.color.grey.light.40}",
+        "pressed": "{foundation.color.grey.light.60}",
+        "disabled": "{foundation.color.grey.light.20}"
+      }
+    }
+  }
+}
+```
+
+### 타이포그래피 (Typography)
+
+텍스트 스타일에 대한 의미 있는 이름을 부여합니다.
+
+```json
+"typography": {
+  "heading": {
+    "large": {
+      "fontFamily": "{foundation.typography.fontFamily.base}",
+      "fontSize": "{foundation.typography.fontSize.320}",
+      "fontWeight": "{foundation.typography.fontWeight.700}",
+      "lineHeight": "{foundation.typography.lineHeight.38}"
+    },
+    "medium": {
+      "fontFamily": "{foundation.typography.fontFamily.base}",
+      "fontSize": "{foundation.typography.fontSize.240}",
+      "fontWeight": "{foundation.typography.fontWeight.600}",
+      "lineHeight": "{foundation.typography.lineHeight.32}"
+    }
+  },
+  "body": {
+    "large": {
+      "fontFamily": "{foundation.typography.fontFamily.base}",
+      "fontSize": "{foundation.typography.fontSize.160}",
+      "fontWeight": "{foundation.typography.fontWeight.400}",
+      "lineHeight": "{foundation.typography.lineHeight.24}"
+    },
+    "small": {
+      "fontFamily": "{foundation.typography.fontFamily.base}",
+      "fontSize": "{foundation.typography.fontSize.140}",
+      "fontWeight": "{foundation.typography.fontWeight.400}",
+      "lineHeight": "{foundation.typography.lineHeight.20}"
+    }
+  }
+}
+```
+
+### 간격 (Spacing)
+
+컴포넌트와 요소 사이의 간격에 의미를 부여합니다.
+
+```json
+"spacingHor": {
+  "global": {
+    "none": "{foundation.spacing.0.horizontal}",
+    "xxs": "{foundation.spacing.40.horizontal}",
+    "xs": "{foundation.spacing.80.horizontal}",
+    "sm": "{foundation.spacing.120.horizontal}",
+    "md": "{foundation.spacing.160.horizontal}",
+    "lg": "{foundation.spacing.200.horizontal}",
+    "xl": "{foundation.spacing.240.horizontal}"
+  }
+},
+"spacingVer": {
+  "global": {
+    "none": "{foundation.spacing.0.vertical}",
+    "xxs": "{foundation.spacing.40.vertical}",
+    "xs": "{foundation.spacing.80.vertical}",
+    "sm": "{foundation.spacing.120.vertical}",
+    "md": "{foundation.spacing.160.vertical}",
+    "lg": "{foundation.spacing.200.vertical}",
+    "xl": "{foundation.spacing.240.vertical}"
+  }
+}
+```
+
+### 둥근 모서리 (Radius)
+
+컴포넌트의 모서리 둥글기에 의미를 부여합니다.
+
+```json
+"radius": {
+  "global": {
+    "none": "{foundation.radius.0}",
+    "sm": "{foundation.radius.20}",
+    "md": "{foundation.radius.40}",
+    "lg": "{foundation.radius.60}",
+    "xl": "{foundation.radius.80}",
+    "xxl": "{foundation.radius.100}",
+    "circular": "{foundation.radius.1000}",
+    "pill": "{foundation.radius.1000}"
+  }
+}
+```
+
+### 높이 (Height)
+
+컴포넌트의 높이에 대한 의미 있는 스케일을 제공합니다.
+
+```json
+"height": {
+  "global": {
+    "xxxs": "{foundation.height.120}",
+    "xxs": "{foundation.height.160}",
+    "xs": "{foundation.height.200}",
+    "sm": "{foundation.height.240}",
+    "md": "{foundation.height.280}",
+    "lg": "{foundation.height.320}",
+    "xl": "{foundation.height.360}",
+    "xxl": "{foundation.height.400}",
+    "xxxl": "{foundation.height.440}"
+  }
+}
+```
+
+## Semantic 토큰 사용 방법
+
+Semantic 토큰은 다음과 같이 CSS 변수를 통해 사용할 수 있습니다:
+
+```css
+.button {
+  /* 기본 버튼 스타일 */
+  background-color: var(--semantic-color-primary-background-1-rest);
+  color: var(--semantic-color-primary-foreground-1-rest);
+  border-radius: var(--semantic-radius-global-md);
+  height: var(--semantic-height-global-md);
+  padding: 0 var(--semantic-spacingHor-global-md);
+}
+
+.button:hover {
+  background-color: var(--semantic-color-primary-background-1-hover);
+}
+
+.button:active {
+  background-color: var(--semantic-color-primary-background-1-pressed);
+}
+
+.button:disabled {
+  background-color: var(--semantic-color-primary-background-1-disabled);
+  color: var(--semantic-color-primary-foreground-1-disabled);
+}
+```
+
+## Semantic vs Foundation 토큰
+
+| Semantic 토큰 | Foundation 토큰 |
+|--------------|----------------|
+| 디자인 맥락과 의미 제공 | 원시적인 디자인 값만 제공 |
+| 실제 UI 구현에 사용 | 직접 사용하지 않음 |
+| 디자인 변경 시 이 값만 수정 | 기초 디자인 자산으로 보존 |
+| 브랜드별로 다르게 정의 가능 | 모든 브랜드가 공유 | 
