@@ -18,7 +18,12 @@ const Icon = ({ name, size = 'md', className = '', onClick, ...rest }) => {
   // 아이콘 이름 경로 정규화
   const normalizePath = (iconName) => {
     // 공백이 있는 경로 처리
-    return iconName.replace(/\s+/g, '%20');
+    const normalized = iconName
+      .replace(/\s+/g, '-') // 공백을 하이픈으로 변경
+      .replace(/\/+/g, '/') // 중복 슬래시 제거
+      .toLowerCase(); // 소문자로 변환 (대소문자 구분 문제 해결)
+    
+    return normalized;
   };
 
   useEffect(() => {
@@ -27,7 +32,17 @@ const Icon = ({ name, size = 'md', className = '', onClick, ...rest }) => {
       try {
         // 아이콘 경로 정규화
         const normalizedPath = normalizePath(name);
-        const res = await fetch(`/shared/tokens/icons/${normalizedPath}.svg`);
+        console.log('Fetching icon:', normalizedPath);
+        
+        // 원래 경로로 시도
+        let res = await fetch(`/shared/tokens/icons/${normalizedPath}.svg`);
+        
+        // 원래 경로가 실패하면 하이픈을 제거한 경로 시도
+        if (!res.ok) {
+          const pathWithoutHyphen = normalizedPath.replace(/-/g, '/');
+          console.log('Retrying with path:', pathWithoutHyphen);
+          res = await fetch(`/shared/tokens/icons/${pathWithoutHyphen}.svg`);
+        }
         
         if (!res.ok) {
           throw new Error(`Failed to fetch icon: ${name}`);

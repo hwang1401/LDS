@@ -54,19 +54,19 @@ const Button = ({
   const getDefaultIcon = (type) => {
     const iconMap = {
       leftIcon: {
-        primary: 'line-icons/Arrow/Chevron/up',
-        secondary: 'line-icons/Arrow/Chevron/up', 
-        cta: 'line-icons/Arrow/Chevron/up'
+        primary: 'line-icons/arrow/chevron/up',
+        secondary: 'line-icons/arrow/chevron/up', 
+        cta: 'line-icons/arrow/chevron/up'
       },
       rightIcon: {
-        primary: 'line-icons/Arrow/Chevron/right',
-        secondary: 'line-icons/Arrow/Chevron/right',
-        cta: 'line-icons/Arrow/Chevron/right'
+        primary: 'line-icons/arrow/chevron/right',
+        secondary: 'line-icons/arrow/chevron/right',
+        cta: 'line-icons/arrow/chevron/right'
       },
       iconOnly: {
-        primary: 'line-icons/Arrow/Chevron/right',
-        secondary: 'line-icons/Arrow/Chevron/up',
-        cta: 'line-icons/Arrow/Chevron/up'
+        primary: 'line-icons/arrow/chevron/right',
+        secondary: 'line-icons/arrow/chevron/up',
+        cta: 'line-icons/arrow/chevron/up'
       }
     };
     
