@@ -34,14 +34,29 @@ const Icon = ({ name, size = 'md', className = '', onClick, ...rest }) => {
         const normalizedPath = normalizePath(name);
         console.log('Fetching icon:', normalizedPath);
         
-        // 원래 경로로 시도
-        let res = await fetch(`/shared/tokens/icons/${normalizedPath}.svg`);
+        // 기본 URL 경로 설정
+        const baseUrl = window.location.origin;
         
-        // 원래 경로가 실패하면 하이픈을 제거한 경로 시도
+        // 첫 번째 시도: 기본 경로
+        let res = await fetch(`${baseUrl}/shared/tokens/icons/${normalizedPath}.svg`);
+        
+        // 두 번째 시도: 하이픈을 슬래시로 변경
         if (!res.ok) {
           const pathWithoutHyphen = normalizedPath.replace(/-/g, '/');
           console.log('Retrying with path:', pathWithoutHyphen);
-          res = await fetch(`/shared/tokens/icons/${pathWithoutHyphen}.svg`);
+          res = await fetch(`${baseUrl}/shared/tokens/icons/${pathWithoutHyphen}.svg`);
+        }
+        
+        // 세 번째 시도: 절대 경로 사용
+        if (!res.ok) {
+          console.log('Retrying with absolute path');
+          res = await fetch(`/shared/tokens/icons/${normalizedPath}.svg`);
+        }
+        
+        // 네 번째 시도: 대체 경로
+        if (!res.ok) {
+          console.log('Retrying with alternative path');
+          res = await fetch(`/shared/tokens/icons/${normalizedPath.replace(/-/g, '/')}.svg`);
         }
         
         if (!res.ok) {
@@ -70,10 +85,15 @@ const Icon = ({ name, size = 'md', className = '', onClick, ...rest }) => {
     svgElement.innerHTML = svgContent;
     const svgNode = svgElement.firstChild;
     
+    if (!svgNode) {
+      console.error('Invalid SVG content:', svgContent);
+      return '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg>';
+    }
+    
     // width, height 속성 추출하고 제거 (CSS로 제어하기 위해)
     svgNode.removeAttribute('width');
     svgNode.removeAttribute('height');
-    const viewBox = svgNode.getAttribute('viewBox');
+    const viewBox = svgNode.getAttribute('viewBox') || '0 0 24 24';
     
     // 기존 내용 유지
     const innerContent = svgNode.innerHTML;
