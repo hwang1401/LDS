@@ -1,6 +1,6 @@
 /**
  * 자동 생성된 CSS 변수
- * 생성 시간: 2025-05-02T08:02:00.832Z
+ * 생성 시간: 2025-05-07T06:56:12.712Z
  */
 
 :root {
@@ -449,6 +449,26 @@
   --foundation-strokeWidth-80: 8px;
   --foundation-strokeWidth-90: 9px;
   --foundation-strokeWidth-100: 10px;
+  --foundation-height-120: 12px;
+  --foundation-height-160: 16px;
+  --foundation-height-200: 20px;
+  --foundation-height-240: 24px;
+  --foundation-height-280: 28px;
+  --foundation-height-320: 32px;
+  --foundation-height-360: 36px;
+  --foundation-height-400: 40px;
+  --foundation-height-440: 44px;
+  --foundation-height-480: 48px;
+  --foundation-height-520: 52px;
+  --foundation-height-560: 56px;
+  --foundation-height-600: 60px;
+  --foundation-height-640: 64px;
+  --foundation-height-680: 68px;
+  --foundation-height-720: 72px;
+  --foundation-height-760: 76px;
+  --foundation-height-800: 80px;
+  --foundation-height-840: 84px;
+  --foundation-height-880: 88px;
 
   --semantic-color-neutral-background-1-rest: var(--foundation-color-grey-light-20);
   --semantic-color-neutral-background-1-hovered: var(--foundation-color-grey-light-40);

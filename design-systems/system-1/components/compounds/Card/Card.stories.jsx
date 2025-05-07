@@ -40,13 +40,7 @@ export const WithImage = {
     variant: 'elevated',
     title: '이미지 카드',
     subtitle: '이미지가 포함된 카드',
-    media: (
-      <img
-        src="https://via.placeholder.com/400x200"
-        alt="카드 이미지"
-        style={{ width: '100%', height: '200px', objectFit: 'cover' }}
-      />
-    ),
+    media: <img src="https://via.placeholder.com/400x200" alt="카드 이미지" style={{ width: '100%', height: '200px', objectFit: 'cover' }}/>,
     children: '이미지가 포함된 카드 내용입니다.',
   },
 }; 

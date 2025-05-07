@@ -1,4 +1,4 @@
-/** @type { import('@storybook/react-vite').StorybookConfig } */
+/** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: [
     "../design-systems/*/components/**/*.stories.@(js|jsx|ts|tsx|mdx)"
@@ -7,13 +7,15 @@ const config = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-a11y",
+    "@storybook/addon-webpack5-compiler-babel"
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: "@storybook/react-webpack5",
     options: {}
   },
   staticDirs: [
-    { from: '../public', to: '/' }
+    "../public"
   ],
   /* 먼저 refs 설정을 제거하고 기본 스토리북이 정상 작동하는지 확인합니다
   refs: {
@@ -31,6 +33,24 @@ const config = {
     }
   }
   */
+  babel: async (options) => ({
+    ...options,
+    presets: [...(options.presets || []), '@babel/preset-react']
+  }),
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['babel-plugin-react-require']
+        }
+      }
+    });
+    return config;
+  }
 };
 
 export default config;
