@@ -1,2 +1,0 @@
-# LDS
-Lumir-design-system
