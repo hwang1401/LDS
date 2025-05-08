@@ -1,0 +1,287 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Foundation/Height" />
+
+# 높이 Foundation 토큰
+
+Foundation 높이 토큰은 디자인 시스템에서 사용되는 UI 컴포넌트의 다양한 높이 값을 정의합니다. 이 토큰들은 버튼, 입력 필드, 선택기 등과 같은 상호작용 요소의 크기를 일관되게 유지하는 데 사용됩니다.
+
+## 높이 크기
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-120</td>
+          <td style={{ padding: '12px 8px' }}>12px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '12px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-160</td>
+          <td style={{ padding: '12px 8px' }}>16px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '16px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-200</td>
+          <td style={{ padding: '12px 8px' }}>20px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '20px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-240</td>
+          <td style={{ padding: '12px 8px' }}>24px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '24px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-280</td>
+          <td style={{ padding: '12px 8px' }}>28px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '28px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-320</td>
+          <td style={{ padding: '12px 8px' }}>32px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '32px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-360</td>
+          <td style={{ padding: '12px 8px' }}>36px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '36px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-400</td>
+          <td style={{ padding: '12px 8px' }}>40px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '40px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-440</td>
+          <td style={{ padding: '12px 8px' }}>44px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '44px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-height-480</td>
+          <td style={{ padding: '12px 8px' }}>48px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '100px', 
+              height: '48px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## UI 요소 적용 예시
+
+높이 토큰은 다양한 상호작용 요소의 크기를 표준화하는 데 사용됩니다.
+
+### 버튼 크기 변형
+
+<div className="sb-unstyled" style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
+  <div>
+    <div style={{ 
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 'var(--foundation-height-280)',
+      backgroundColor: '#1E88E5',
+      color: 'white',
+      padding: '0 16px',
+      borderRadius: '4px',
+      fontSize: '14px',
+      marginBottom: '8px'
+    }}>
+      작은 버튼
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      height-280 (28px)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 'var(--foundation-height-360)',
+      backgroundColor: '#1E88E5',
+      color: 'white',
+      padding: '0 16px',
+      borderRadius: '4px',
+      fontSize: '14px',
+      marginBottom: '8px'
+    }}>
+      중간 버튼
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      height-360 (36px)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 'var(--foundation-height-440)',
+      backgroundColor: '#1E88E5',
+      color: 'white',
+      padding: '0 20px',
+      borderRadius: '4px',
+      fontSize: '16px',
+      marginBottom: '8px'
+    }}>
+      큰 버튼
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      height-440 (44px)
+    </div>
+  </div>
+</div>
+
+### 입력 필드 크기 변형
+
+<div className="sb-unstyled" style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
+  <div>
+    <div style={{ 
+      height: 'var(--foundation-height-280)',
+      border: '1px solid #CCCCCC',
+      borderRadius: '4px',
+      padding: '0 12px',
+      display: 'flex',
+      alignItems: 'center',
+      width: '200px',
+      fontSize: '14px',
+      marginBottom: '8px'
+    }}>
+      작은 입력 필드
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      height-280 (28px)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      height: 'var(--foundation-height-360)',
+      border: '1px solid #CCCCCC',
+      borderRadius: '4px',
+      padding: '0 12px',
+      display: 'flex',
+      alignItems: 'center',
+      width: '200px',
+      fontSize: '14px',
+      marginBottom: '8px'
+    }}>
+      중간 입력 필드
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      height-360 (36px)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      height: 'var(--foundation-height-440)',
+      border: '1px solid #CCCCCC',
+      borderRadius: '4px',
+      padding: '0 12px',
+      display: 'flex',
+      alignItems: 'center',
+      width: '200px',
+      fontSize: '16px',
+      marginBottom: '8px'
+    }}>
+      큰 입력 필드
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      height-440 (44px)
+    </div>
+  </div>
+</div>
+
+## 사용 가이드라인
+
+Foundation 높이 토큰은 직접 사용보다는 Semantic 토큰을 통해 사용하는 것이 권장됩니다. 이는 디자인 변경 시 일관성을 유지하고 유지보수를 용이하게 합니다.
+
+```css
+/* 권장하지 않음 */
+.button {
+  height: var(--foundation-height-360);
+}
+
+/* 권장 */
+.button {
+  height: var(--semantic-size-button-md);
+}
+```
+
+효과적인 높이 사용을 위한 원칙:
+
+- **일관성**: 동일한 유형의 요소에는 동일한 높이 적용
+- **접근성**: 충분한 터치/클릭 영역 확보 (모바일 요소는 최소 44px 권장)
+- **비례**: 화면 크기와 요소의 중요도에 비례하는 높이 선택
+- **정렬**: 높이가 다른 요소들 간의 적절한 수직 정렬 유지 

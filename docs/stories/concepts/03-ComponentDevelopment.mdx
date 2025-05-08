@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Concepts/03. 컴포넌트 개발 규칙" />
+
+# 컴포넌트 개발 규칙
+
+## 컴포넌트 계층 구조
+
+- **Primitives**: 더 이상 분해할 수 없는 기본 UI 요소 (Button, Input, Typography 등)
+- **Compounds**: 기본 요소를 조합한 복합 컴포넌트 (Card, Dialog, Dropdown 등)
+- **Patterns**: 복합 요소와 기본 요소를 특정 사용자 경험을 위해 조합 (Form, SearchBar 등)
+
+## 컴포넌트 개발 원칙
+
+- 모든 스타일은 시멘틱 토큰을 통해 적용할 것
+- 하드코딩된 값 사용 금지
+- 상태별 스타일 일관성 유지 (rest, hovered, pressed, focused, disabled 등)
+- JSDoc을 통한 props와 컴포넌트 설명 필수
+- 접근성(a11y) 고려
+
+## CSS 작성 규칙
+
+- 직접 파운데이션 토큰 변수를 사용하지 않고, 시멘틱 토큰 변수만 사용
+- 변수 이름은 semantic.json과 정확히 일치해야 함 
+- 변수 이름이 없는 경우 파운데이션 토큰 직접 참조 가능 (예: 투명도)
+- 하드코딩된 색상값, 사이즈값 사용 금지
+- 상태별 스타일 작성 시 동일한 패턴 유지
+
+## 컴포넌트 스타일 예시
+
+```css
+/* 잘못된 예 */
+.btn-primary.btn-filled:hover:not(:disabled) {
+  background-color: #64B5F6; /* 하드코딩된 값 */
+  border-color: rgba(33, 150, 243, 0.1); /* 하드코딩된 값 */
+}
+
+/* 올바른 예 */
+.btn-primary.btn-filled:hover:not(:disabled) {
+  background-color: var(--semantic-color-primary-background-1-hovered);
+  border-color: var(--semantic-color-primary-stroke-1-rest);
+}
+
+/* 올바른 예 - 정의된 시멘틱 토큰이 없는 경우 파운데이션 토큰 사용 */
+.btn-primary.btn-outlined:hover:not(:disabled) {
+  background-color: var(--foundation-color-transparent-light-50);
+}
+```
+
+## 컴포넌트 Props 정의 규칙
+
+- 명확한 타입 정의 (string, number, boolean, ReactNode 등)
+- 기본값 설정
+- 필요한 검증 로직 추가
+- 사용 예시 주석 포함
+
+```jsx
+/**
+ * 버튼 컴포넌트
+ * @param {object} props - 컴포넌트 속성
+ * @param {'primary'|'secondary'|'cta'} props.variant - 버튼 종류(상황별)
+ * @param {'filled'|'outlined'|'transparent'} props.style - 버튼 스타일
+ * @param {'xs'|'sm'|'md'|'lg'|'xl'} props.size - 버튼 크기
+ * @param {boolean} props.fullWidth - 전체 너비 적용 여부
+ * @param {boolean} props.disabled - 비활성화 여부
+ * @param {React.ReactNode} props.leftIcon - 왼쪽 아이콘
+ * @param {React.ReactNode} props.rightIcon - 오른쪽 아이콘
+ * @param {React.ReactNode} props.children - 버튼 내용
+ * @param {function} props.onClick - 클릭 이벤트 핸들러
+ */
+``` 

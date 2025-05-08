@@ -1,0 +1,296 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Foundation/Shadow" />
+
+# 그림자 Foundation 토큰
+
+Foundation 그림자 토큰은 디자인 시스템에서 요소의 깊이감과 공간감을 표현하는데 사용되는 그림자 효과를 정의합니다. 이 토큰들은
+transparent 색상과 함께 주로 계층 구조와 상호작용성을 시각적으로 표현하는 데 사용됩니다.
+
+## 반투명 색상
+
+그림자 효과의 기본이 되는 투명도를 가진 색상 토큰은 다음과 같습니다:
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-100</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0, 0, 0, 0.12)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0, 0, 0, 0.12)',
+              border: '1px solid #E5E5E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-200</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0, 0, 0, 0.06)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0, 0, 0, 0.06)',
+              border: '1px solid #E5E5E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-300</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0, 0, 0, 0.20)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0, 0, 0, 0.20)',
+              border: '1px solid #E5E5E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-400</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0, 0, 0, 0.30)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0, 0, 0, 0.30)',
+              border: '1px solid #E5E5E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-500</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0, 0, 0, 0.14)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0, 0, 0, 0.14)',
+              border: '1px solid #E5E5E5'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 그림자 효과 예시
+
+그림자는 주로 semantic 토큰을 통해 요소의 깊이를 나타내는데 사용됩니다. 다음은 그림자 효과가 적용된 요소 예시입니다:
+
+<div className="sb-unstyled" style={{ display: 'flex', gap: '24px', marginBottom: '32px' }}>
+  <div>
+    <div style={{ 
+      padding: '16px',
+      backgroundColor: 'white', 
+      borderRadius: '8px',
+      width: '150px',
+      height: '100px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.20)'
+    }}>
+      약한 그림자
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      x: 0px, y: 1px, blur: 3px<br />
+      color: rgba(0, 0, 0, 0.20)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '16px',
+      backgroundColor: 'white', 
+      borderRadius: '8px',
+      width: '150px',
+      height: '100px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.30)'
+    }}>
+      중간 그림자
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      x: 0px, y: 4px, blur: 6px<br />
+      color: rgba(0, 0, 0, 0.30)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '16px',
+      backgroundColor: 'white', 
+      borderRadius: '8px',
+      width: '150px',
+      height: '100px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.14)'
+    }}>
+      강한 그림자
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      x: 0px, y: 8px, blur: 15px<br />
+      color: rgba(0, 0, 0, 0.14)
+    </div>
+  </div>
+</div>
+
+## 상태별 그림자 예시
+
+그림자는 UI 요소의 상태(휴면, 호버, 클릭 등)를 나타내는데도 활용됩니다:
+
+<div className="sb-unstyled" style={{ display: 'flex', gap: '24px', marginBottom: '32px' }}>
+  <div>
+    <div style={{ 
+      padding: '12px 24px',
+      backgroundColor: '#1E88E5', 
+      color: 'white',
+      borderRadius: '4px',
+      marginBottom: '8px',
+      display: 'inline-block',
+      boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.12)'
+    }}>
+      휴면 상태
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      기본 상태 (Rest)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '12px 24px',
+      backgroundColor: '#1E88E5', 
+      color: 'white',
+      borderRadius: '4px',
+      marginBottom: '8px',
+      display: 'inline-block',
+      boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.20)'
+    }}>
+      호버 상태
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      마우스 오버 (Hover)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '12px 24px',
+      backgroundColor: '#1976D2', 
+      color: 'white',
+      borderRadius: '4px',
+      marginBottom: '8px',
+      display: 'inline-block',
+      boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.30)'
+    }}>
+      활성 상태
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      클릭/활성 (Active)
+    </div>
+  </div>
+</div>
+
+## 깊이에 따른 활용
+
+그림자는 요소의 깊이와 중요도를 나타내는 데 효과적으로 사용됩니다:
+
+<div className="sb-unstyled" style={{ marginBottom: '32px' }}>
+  <div style={{ 
+    position: 'relative',
+    backgroundColor: '#f5f5f5',
+    padding: '40px',
+    borderRadius: '8px',
+    height: '200px'
+  }}>
+    <div style={{ 
+      position: 'absolute',
+      left: '40px',
+      top: '40px',
+      width: '160px',
+      height: '100px',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '16px',
+      boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.12)',
+      zIndex: 1
+    }}>
+      기본 깊이 요소
+    </div>
+    
+    <div style={{ 
+      position: 'absolute',
+      left: '120px',
+      top: '80px',
+      width: '160px',
+      height: '100px',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '16px',
+      boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.20)',
+      zIndex: 2
+    }}>
+      중간 깊이 요소
+    </div>
+    
+    <div style={{ 
+      position: 'absolute',
+      left: '200px',
+      top: '120px',
+      width: '160px',
+      height: '100px',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '16px',
+      boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.30)',
+      zIndex: 3
+    }}>
+      상위 깊이 요소
+    </div>
+  </div>
+</div>
+
+## 사용 가이드라인
+
+Foundation 그림자 값은 직접 사용보다는 Semantic 토큰을 통해 사용하는 것이 권장됩니다. 이는 디자인 변경 시 일관성을 유지하고 유지보수를 용이하게 합니다.
+
+```css
+/* 권장하지 않음 */
+.card {
+  box-shadow: 0px 4px 6px var(--foundation-color-transparent-light-300);
+}
+
+/* 권장 */
+.card {
+  box-shadow: var(--semantic-shadow-component-resting);
+}
+```
+
+효과적인 그림자 사용을 위한 원칙:
+
+- **일관성**: 동일한 깊이와 중요도를 가진 요소에는 동일한 그림자 적용
+- **계층 구조**: 그림자 강도를 통해 시각적 계층 구조 표현
+- **상호작용**: 상태 변화(휴면, 호버, 활성)에 따라 적절한 그림자 전환
+- **성능 고려**: 과도한 그림자 효과는 렌더링 성능에 영향을 줄 수 있으므로 필요한 곳에만 사용

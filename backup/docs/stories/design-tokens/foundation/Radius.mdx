@@ -1,0 +1,231 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Foundation/Radius" />
+
+# 반경 Foundation 토큰
+
+Foundation 반경 토큰은 디자인 시스템에서 사용되는 모서리 둥글기 값을 정의합니다. 이 토큰들은 직접 사용되기보다 Semantic 반경 토큰을 통해 참조됩니다.
+
+## 반경 크기
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-0</td>
+          <td style={{ padding: '12px 8px' }}>0px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '0px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-20</td>
+          <td style={{ padding: '12px 8px' }}>2px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '2px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-40</td>
+          <td style={{ padding: '12px 8px' }}>4px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '4px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-60</td>
+          <td style={{ padding: '12px 8px' }}>6px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '6px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-80</td>
+          <td style={{ padding: '12px 8px' }}>8px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '8px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-100</td>
+          <td style={{ padding: '12px 8px' }}>10px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '10px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-120</td>
+          <td style={{ padding: '12px 8px' }}>12px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '12px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-160</td>
+          <td style={{ padding: '12px 8px' }}>16px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '16px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-200</td>
+          <td style={{ padding: '12px 8px' }}>20px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '20px' 
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--foundation-radius-1000</td>
+          <td style={{ padding: '12px 8px' }}>10000px</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5', 
+              borderRadius: '50%' 
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 실제 적용 예시
+
+반경 토큰은 버튼, 카드, 입력 필드 등 다양한 UI 요소의 모서리를 둥글게 처리하는 데 사용됩니다.
+
+<div className="sb-unstyled" style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
+  <div>
+    <div style={{ 
+      padding: '12px 24px',
+      backgroundColor: '#1E88E5', 
+      color: 'white',
+      borderRadius: 'var(--foundation-radius-40)',
+      display: 'inline-block',
+      marginBottom: '8px'
+    }}>
+      작은 반경 버튼
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      radius-40 (4px)
+    </div>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '12px 24px',
+      backgroundColor: '#1E88E5', 
+      color: 'white',
+      borderRadius: 'var(--foundation-radius-1000)',
+      display: 'inline-block',
+      marginBottom: '8px'
+    }}>
+      원형 반경 버튼
+    </div>
+    <div style={{ fontSize: '14px', color: '#666' }}>
+      radius-1000 (10000px)
+    </div>
+  </div>
+</div>
+
+<div className="sb-unstyled" style={{ marginBottom: '32px' }}>
+  <div style={{ 
+    padding: '16px',
+    backgroundColor: 'white', 
+    borderRadius: 'var(--foundation-radius-80)',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    width: '300px',
+    marginBottom: '8px'
+  }}>
+    <div style={{ fontSize: '18px', marginBottom: '8px', fontWeight: 'bold' }}>카드 제목</div>
+    <div style={{ fontSize: '14px', color: '#666' }}>카드 컴포넌트에 적용된 반경 토큰 예시입니다. 카드와 같은 컨테이너 요소에 적절한 반경을 적용하면 시각적 계층 구조를 형성하는 데 도움이 됩니다.</div>
+  </div>
+  <div style={{ fontSize: '14px', color: '#666' }}>
+    radius-80 (8px)
+  </div>
+</div>
+
+## 반경 선택 가이드라인
+
+UI 요소의 크기와 중요도에 따라 적절한 반경을 선택하는 것이 중요합니다:
+
+- **작은 요소 (아이콘, 배지)**: radius-20 ~ radius-40 (2px ~ 4px)
+- **중간 요소 (버튼, 입력 필드)**: radius-40 ~ radius-80 (4px ~ 8px)
+- **큰 요소 (카드, 모달)**: radius-80 ~ radius-160 (8px ~ 16px)
+- **원형 요소**: radius-1000 (10000px 또는 50%)
+
+## 사용 가이드라인
+
+Foundation 반경 토큰은 직접 사용보다는 Semantic 토큰을 통해 사용하는 것이 권장됩니다. 이는 디자인 변경 시 일관성을 유지하고 유지보수를 용이하게 합니다.
+
+```css
+/* 권장하지 않음 */
+.button {
+  border-radius: var(--foundation-radius-40);
+}
+
+/* 권장 */
+.button {
+  border-radius: var(--semantic-radius-global-sm);
+}
+```
+
+일관된 반경 시스템을 사용하면 다음과 같은 이점이 있습니다:
+
+- **시각적 일관성**: 모든 UI 요소에 일관된 모서리 처리 제공
+- **브랜드 아이덴티티**: 특정 반경을 통해 브랜드의 시각적 특성 강화
+- **사용자 경험**: 적절한 반경을 통해 요소의 상호작용 가능성과 우선순위 전달

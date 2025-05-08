@@ -1,0 +1,70 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Concepts/05. Style Dictionary 설정" />
+
+# Style Dictionary 설정
+
+## Style Dictionary 기본 설정
+
+- 토큰 파일을 다양한 포맷으로 변환
+- CSS 변수, JavaScript 객체 등 생성
+- 각 디자인 시스템별 빌드 설정
+
+## Build Script 설정
+
+**`scripts/config.js`:**
+```javascript
+const StyleDictionary = require('style-dictionary');
+
+console.log('Running token build with shared foundation...');
+
+const designSystems = ['system-1', 'system-2'];
+
+const getConfig = (system) => {
+  return {
+    source: [
+      "shared/tokens/foundation.json",
+      `design-systems/${system}/tokens/semantic.json`
+    ],
+    platforms: {
+      css: {
+        transformGroup: "css",
+        buildPath: `design-systems/${system}/styles/`,
+        files: [
+          {
+            destination: "variables.css",
+            format: "css/variables"
+          }
+        ]
+      },
+      js: {
+        transformGroup: "js",
+        buildPath: `design-systems/${system}/styles/`,
+        files: [
+          {
+            destination: "tokens.js",
+            format: "javascript/es6"
+          }
+        ]
+      }
+    }
+  };
+};
+
+designSystems.forEach(system => {
+  const sd = StyleDictionary.extend(getConfig(system));
+  sd.buildAllPlatforms();
+});
+
+module.exports = getConfig(designSystems[0]);
+```
+
+## Package.json 스크립트 설정
+
+```json
+"scripts": {
+  "build:tokens": "style-dictionary build --config scripts/config.js",
+  "dev": "npm run build:tokens && storybook dev -p 6006",
+  "build": "npm run build:tokens && build-storybook"
+}
+``` 

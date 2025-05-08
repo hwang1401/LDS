@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build:tokens && storybook build && mkdir -p storybook-static/shared/tokens && cp -r public/shared/tokens/icons storybook-static/shared/tokens/",
+  "devCommand": "npm run storybook",
+  "installCommand": "npm install",
+  "framework": null,
+  "outputDirectory": "./storybook-static",
+  "rewrites": [
+    { "source": "/shared/(.*)", "destination": "/shared/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/shared/tokens/icons/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+} 
