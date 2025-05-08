@@ -9,6 +9,16 @@ const preview = {
        date: /Date$/i,
       },
     },
+    // 스토리북 사이드바 순서 설정
+    sidebar: {
+      order: ['Concepts', 'Tokens', 'component', '*'],
+    },
+    options: {
+      storySort: {
+        order: ['Concepts', 'Tokens', 'component', '*'],
+        method: 'alphabetical',
+      }
+    }
   },
 };
 

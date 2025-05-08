@@ -58,6 +58,15 @@ const config = {
       use: ['@svgr/webpack']
     });
 
+    // mdxStyles 경로 에일리어스 설정 추가
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve.alias,
+        '../../src/components/mdxStyles': require.resolve('../docs/src/components/mdxStyles')
+      }
+    };
+
     return config;
   }
 };

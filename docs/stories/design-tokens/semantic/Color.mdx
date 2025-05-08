@@ -1,0 +1,1258 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Semantic/Color" />
+
+# 색상 Semantic 토큰
+
+Semantic 색상 토큰은 디자인 시스템에서 사용되는 색상의 의미와 용도를 정의하는 토큰입니다. 이 토큰들은 디자인 시스템의 일관된 색상 언어를 유지하는 데 사용됩니다.
+
+각 색상 시맨틱 토큰은 다음과 같은 4단계 계층 구조를 따릅니다:
+
+```
+상황.용도.위계.상태
+```
+
+1. **상황(Context)**: 사용되는 맥락 - primary, secondary, cta, status 등
+2. **용도(Usage)**: 실제 활용 목적 - background, foreground, stroke, oncolor 등
+3. **위계(Hierarchy)**: 중요도 수준 - 1(가장 강조), 2(중간), 3(낮은 강조) 등
+4. **상태(State)**: CSS pseudo-class 기반 상태 - rest, hovered, pressed, selected, disabled 등
+
+## 브랜드 색상 (Primary)
+
+브랜드 색상은 제품이나 서비스의 아이덴티티를 나타내는 주요 색상입니다.
+
+### 배경 색상 (Background)
+
+#### 위계 1
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#2196F3</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2196F3'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-1-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#1E88E5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-1-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#42A5F5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#42A5F5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-1-selected</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#2196F3</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2196F3'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-1-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-20</td>
+          <td style={{ padding: '12px 8px' }}>#90CAF9</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#90CAF9'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+#### 위계 2
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#42A5F5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#42A5F5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-2-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#2196F3</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2196F3'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-2-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-30</td>
+          <td style={{ padding: '12px 8px' }}>#64B5F6</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#64B5F6'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-2-selected</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#42A5F5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#42A5F5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-background-2-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-10</td>
+          <td style={{ padding: '12px 8px' }}>#BBDEFB</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#BBDEFB'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 전경 색상 (Foreground)
+
+#### 위계 1
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-foreground-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#2196F3</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2196F3'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-foreground-1-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#1E88E5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1E88E5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-foreground-1-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#42A5F5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#42A5F5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-foreground-1-selected</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#2196F3</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2196F3'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-foreground-1-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-20</td>
+          <td style={{ padding: '12px 8px' }}>#90CAF9</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#90CAF9'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 테두리 색상 (Stroke)
+
+#### 위계 1
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-stroke-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#1E88E5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              border: '2px solid #1E88E5'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 색상 위 텍스트 (Oncolor)
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-primary-oncolor-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-100</td>
+          <td style={{ padding: '12px 8px' }}>#FFFFFF</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2196F3',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold'
+            }}>Aa</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 보조 색상 (Secondary)
+
+보조 색상은 브랜드 색상을 보완하는 역할로, 덜 강조되는 요소나 배경 등에 사용됩니다.
+
+### 배경 색상 (Background)
+
+#### 위계 1
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-80</td>
+          <td style={{ padding: '12px 8px' }}>#BDBDBD</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#BDBDBD'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-1-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#E0E0E0</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#E0E0E0'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-1-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#EEEEEE</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#EEEEEE'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-1-selected</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#E8E8E8</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#E8E8E8'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-1-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-70</td>
+          <td style={{ padding: '12px 8px' }}>#D0D0D0</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#D0D0D0'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+#### 위계 2, 3 및 Inverse
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#E0E0E0</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#E0E0E0'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-3-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#EEEEEE</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#EEEEEE'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-background-inverse-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-100</td>
+          <td style={{ padding: '12px 8px' }}>#FFFFFF</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              border: '1px solid #e0e0e0'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 전경 색상 (Foreground)
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-foreground-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-20</td>
+          <td style={{ padding: '12px 8px' }}>#212121</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#212121'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-foreground-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#424242</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#424242'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-foreground-3-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#757575</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#757575'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-foreground-inverse-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-0</td>
+          <td style={{ padding: '12px 8px' }}>#FFFFFF</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#424242',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold'
+            }}>Aa</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 테두리 색상 (Stroke)
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-stroke-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#E0E0E0</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              border: '2px solid #E0E0E0'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-stroke-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-80</td>
+          <td style={{ padding: '12px 8px' }}>#BDBDBD</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              border: '2px solid #BDBDBD'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-stroke-3-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-100</td>
+          <td style={{ padding: '12px 8px' }}>#9E9E9E</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              border: '2px solid #9E9E9E'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-stroke-inverse-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-0</td>
+          <td style={{ padding: '12px 8px' }}>#FFFFFF</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#757575',
+              border: '2px solid #FFFFFF'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 색상 위 텍스트 (Oncolor)
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-secondary-oncolor-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-100</td>
+          <td style={{ padding: '12px 8px' }}>#FFFFFF</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#BDBDBD',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold'
+            }}>Aa</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 행동 유도 색상 (CTA)
+
+행동 유도 색상은 사용자에게 주요 행동을 유도하는 데 사용되는 색상입니다.
+
+### 배경 색상 (Background)
+
+#### 위계 1
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#66BB6A</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#66BB6A'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-1-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#4CAF50</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#4CAF50'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-1-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-30</td>
+          <td style={{ padding: '12px 8px' }}>#81C784</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#81C784'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-1-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-20</td>
+          <td style={{ padding: '12px 8px' }}>#A5D6A7</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#A5D6A7'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+#### 위계 2
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-30</td>
+          <td style={{ padding: '12px 8px' }}>#81C784</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#81C784'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-2-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#66BB6A</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#66BB6A'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-2-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-20</td>
+          <td style={{ padding: '12px 8px' }}>#A5D6A7</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#A5D6A7'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-background-2-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-10</td>
+          <td style={{ padding: '12px 8px' }}>#C8E6C9</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#C8E6C9'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 전경 색상 (Foreground)
+
+#### 위계 1
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#43A047</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#43A047'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-1-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-70</td>
+          <td style={{ padding: '12px 8px' }}>#388E3C</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#388E3C'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-1-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-50</td>
+          <td style={{ padding: '12px 8px' }}>#4CAF50</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#4CAF50'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-1-selected</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#43A047</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#43A047'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-1-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#66BB6A</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#66BB6A'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+#### 위계 2
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-80</td>
+          <td style={{ padding: '12px 8px' }}>#2E7D32</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2E7D32'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-2-hovered</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-90</td>
+          <td style={{ padding: '12px 8px' }}>#1B5E20</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#1B5E20'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-2-pressed</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-70</td>
+          <td style={{ padding: '12px 8px' }}>#388E3C</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#388E3C'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-2-selected</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-80</td>
+          <td style={{ padding: '12px 8px' }}>#2E7D32</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#2E7D32'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-foreground-2-disabled</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#43A047</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#43A047'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 테두리 색상 (Stroke)
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-stroke-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-60</td>
+          <td style={{ padding: '12px 8px' }}>#43A047</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              border: '2px solid #43A047'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-stroke-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-80</td>
+          <td style={{ padding: '12px 8px' }}>#2E7D32</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              border: '2px solid #2E7D32'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### 색상 위 텍스트 (Oncolor)
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-cta-oncolor-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-100</td>
+          <td style={{ padding: '12px 8px' }}>#FFFFFF</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#4CAF50',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold'
+            }}>Aa</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 상태 색상 (Status)
+
+상태 색상은 성공, 경고, 오류, 정보 등의 상태를 표현하는 색상입니다.
+
+### 전역 상태 색상
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-status-error-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-red-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#EF5350</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#EF5350'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-status-warning-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-yellow-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#FFEE58</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFEE58'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-status-success-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-green-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#66BB6A</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#66BB6A'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-status-info-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-blue-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#42A5F5</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#42A5F5'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-status-focused-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-grey-light-40</td>
+          <td style={{ padding: '12px 8px' }}>#EEEEEE</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#EEEEEE',
+              border: '1px solid #e0e0e0'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 그림자 (Shadow)
+
+그림자는 UI 요소의 깊이와 층위를 표현하는 데 사용됩니다.
+
+### 전역 그림자
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-shadow-global-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>x: 0px, y: 1px, blur: 3px, color: rgba(0,0,0,0.12)</td>
+          <td style={{ padding: '12px 8px' }}>0px 1px 3px rgba(0,0,0,0.12)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              boxShadow: '0px 1px 3px rgba(0,0,0,0.12)',
+              borderRadius: '4px'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-shadow-global-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>x: 0px, y: 4px, blur: 6px, color: rgba(0,0,0,0.16)</td>
+          <td style={{ padding: '12px 8px' }}>0px 4px 6px rgba(0,0,0,0.16)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              boxShadow: '0px 4px 6px rgba(0,0,0,0.16)',
+              borderRadius: '4px'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-shadow-global-3-rest</td>
+          <td style={{ padding: '12px 8px' }}>x: 0px, y: 8px, blur: 15px, color: rgba(0,0,0,0.2)</td>
+          <td style={{ padding: '12px 8px' }}>0px 8px 15px rgba(0,0,0,0.2)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: '#FFFFFF',
+              boxShadow: '0px 8px 15px rgba(0,0,0,0.2)',
+              borderRadius: '4px'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 오버레이 (Overlay)
+
+오버레이는 모달, 팝오버 등의 배경 위에 표시되는 요소의 반투명한 배경색을 정의합니다.
+
+### 밝은 배경 오버레이
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>실제 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-overlay-background-light-global</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-100</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0,0,0,0.04)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0,0,0,0.04)',
+              border: '1px solid #e0e0e0'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-overlay-background-light-subtle</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-100</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0,0,0,0.04)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0,0,0,0.04)',
+              border: '1px solid #e0e0e0'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-overlay-background-light-medium</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-200</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0,0,0,0.08)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0,0,0,0.08)',
+              border: '1px solid #e0e0e0'
+            }}></div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-color-overlay-background-light-heavy</td>
+          <td style={{ padding: '12px 8px' }}>--foundation-color-transparent-light-300</td>
+          <td style={{ padding: '12px 8px' }}>rgba(0,0,0,0.12)</td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              background: 'rgba(0,0,0,0.12)',
+              border: '1px solid #e0e0e0'
+            }}></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> 

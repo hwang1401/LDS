@@ -3,7 +3,7 @@ import Button from './index';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
-  title: 'System-1/Primitives/Button',
+  title: 'component/Primitives/Button',
   component: Button,
   parameters: {
     layout: 'centered',
