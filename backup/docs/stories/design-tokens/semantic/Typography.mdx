@@ -1,0 +1,241 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Semantic/Typography" />
+
+# 타이포그래피 Semantic 토큰
+
+Semantic 타이포그래피 토큰은 디자인 시스템에서 사용되는 텍스트 스타일을 용도에 맞게 정의한 토큰입니다. 이 토큰들은 디자인 시스템 전반에 걸쳐 일관된 텍스트 스타일을 유지하는 데 사용됩니다.
+
+## 헤딩 (Heading)
+
+헤딩은 콘텐츠의 계층 구조와 중요도를 시각적으로 나타내는 제목 텍스트 스타일입니다.
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-heading-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-240<br />
+            lineHeight: --foundation-typography-lineHeight-24<br />
+            fontWeight: --foundation-typography-fontWeight-700
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '24px',
+              lineHeight: '1.5',
+              fontWeight: '700',
+            }}>헤딩 1</div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-heading-2-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-200<br />
+            lineHeight: --foundation-typography-lineHeight-20<br />
+            fontWeight: --foundation-typography-fontWeight-700
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '20px',
+              lineHeight: '1.5',
+              fontWeight: '700',
+            }}>헤딩 2</div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-heading-3-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-180<br />
+            lineHeight: --foundation-typography-lineHeight-18<br />
+            fontWeight: --foundation-typography-fontWeight-600
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '18px',
+              lineHeight: '1.5',
+              fontWeight: '600',
+            }}>헤딩 3</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 본문 (Body)
+
+본문은 주요 콘텐츠를 구성하는 일반 텍스트 스타일입니다.
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-body-normal-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-160<br />
+            lineHeight: --foundation-typography-lineHeight-16<br />
+            fontWeight: --foundation-typography-fontWeight-400
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '16px',
+              lineHeight: '1.5',
+              fontWeight: '400',
+            }}>일반 본문 텍스트입니다. 가장 기본이 되는 텍스트 스타일입니다.</div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-body-strong-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-160<br />
+            lineHeight: --foundation-typography-lineHeight-16<br />
+            fontWeight: --foundation-typography-fontWeight-600
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '16px',
+              lineHeight: '1.5',
+              fontWeight: '600',
+            }}>강조 본문 텍스트입니다. 중요한 내용을 강조할 때 사용합니다.</div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-body-small-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-140<br />
+            lineHeight: --foundation-typography-lineHeight-14<br />
+            fontWeight: --foundation-typography-fontWeight-400
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '14px',
+              lineHeight: '1.5',
+              fontWeight: '400',
+            }}>작은 본문 텍스트입니다. 부가 정보나 덜 중요한 내용을 표시할 때 사용합니다.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 레이블 (Label)
+
+레이블은 UI 요소의 용도나 상태를 설명하는 짧은 텍스트 스타일입니다.
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-label-button-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-160<br />
+            lineHeight: --foundation-typography-lineHeight-16<br />
+            fontWeight: --foundation-typography-fontWeight-500<br />
+            letterSpacing: --foundation-typography-letterSpacing-50
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '16px',
+              lineHeight: '1.5',
+              fontWeight: '500',
+              letterSpacing: '0.05em',
+              display: 'inline-block',
+              padding: '8px 16px',
+              background: '#1E88E5',
+              color: 'white',
+              borderRadius: '4px',
+            }}>버튼 텍스트</div>
+          </td>
+        </tr>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-label-form-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-140<br />
+            lineHeight: --foundation-typography-lineHeight-14<br />
+            fontWeight: --foundation-typography-fontWeight-500
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '14px',
+              lineHeight: '1.5',
+              fontWeight: '500',
+            }}>폼 레이블</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## 캡션 (Caption)
+
+캡션은 이미지나 표, 그래프 등의 부가 설명을 위한 텍스트 스타일입니다.
+
+<div className="sb-unstyled">
+  <div style={{ marginBottom: '32px' }}>
+    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>토큰 이름</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>참조 값</th>
+          <th style={{ textAlign: 'left', padding: '12px 8px' }}>시각화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{ borderBottom: '1px solid #ddd' }}>
+          <td style={{ padding: '12px 8px' }}>--semantic-typography-caption-1-rest</td>
+          <td style={{ padding: '12px 8px' }}>
+            fontSize: --foundation-typography-fontSize-120<br />
+            lineHeight: --foundation-typography-lineHeight-12<br />
+            fontWeight: --foundation-typography-fontWeight-400<br />
+            fontStyle: italic
+          </td>
+          <td style={{ padding: '12px 8px' }}>
+            <div style={{ 
+              fontFamily: 'Pretendard, sans-serif',
+              fontSize: '12px',
+              lineHeight: '1.5',
+              fontWeight: '400',
+              fontStyle: 'italic',
+              color: '#757575',
+            }}>이미지 캡션, 출처 등 부가 설명에 사용되는 텍스트</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
