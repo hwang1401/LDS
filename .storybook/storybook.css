@@ -1,147 +1,199 @@
-/* 스토리북 UI에 타이포그래피 스타일 적용 */
+/* 스토리북 UI에 디자인시스템 시멘틱 토큰 적용 */
 
-/* 기본 폰트 패밀리 설정 */
+/* 기본 폰트 및 색상 설정 */
 body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Pretendard', sans-serif;
+  background-color: var(--semantic-color-secondary-background-inverse-rest);
+  color: var(--semantic-color-secondary-foreground-1-rest);
+  margin: 0;
+  padding: 0;
 }
 
-/* 스토리북 스토리 컨테이너 */
+/* 기본 레이아웃 설정 */
+#storybook-root {
+  background-color: var(--semantic-color-secondary-background-inverse-rest);
+}
+
+/* 사이드바 스타일 */
+.sidebar-container {
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  border-right: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+}
+
+.sidebar-header {
+  border-bottom: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  padding: var(--semantic-spacingVer-global-sm) !important;
+}
+
+.sidebar-header svg {
+  width: var(--semantic-size-global-xl) !important;
+  height: var(--semantic-size-global-xl) !important;
+  color: var(--semantic-color-primary-foreground-1-rest);
+}
+
+/* 스토리북 컨테이너 및 문서 스타일 */
 .sb-story-container {
-  margin: 2rem;
+  margin: var(--semantic-spacingVer-global-lg);
 }
 
-/* 스토리북 문서 컨테이너 */
 .sb-docs-container {
   font-family: 'Pretendard', sans-serif;
 }
 
-/* 스토리북 메인 영역 */
 .sb-show-main {
-  color: var(--foundation-color-grey-light-20);
+  color: var(--semantic-color-secondary-foreground-1-rest);
+  background: var(--semantic-color-secondary-background-inverse-rest) !important;
+  padding: 0 !important;
 }
 
-/* DocsPage 타이틀 - hero/1 bold */
+/* 타이포그래피 스타일 */
 .sbdocs-title {
   font-size: var(--semantic-typography-hero\/1-bold-fontSize);
   line-height: var(--semantic-typography-hero\/1-bold-lineHeight);
   letter-spacing: var(--semantic-typography-hero\/1-bold-letterSpacing);
   font-weight: var(--semantic-typography-hero\/1-bold-fontWeight);
-  color: var(--foundation-color-grey-light-20);
-  margin-bottom: var(--semantic-spacingVer-global-md);
+  color: var(--semantic-color-secondary-foreground-1-rest);
+  margin-bottom: var(--semantic-spacingVer-global-xl);
+  border-bottom: none !important;
 }
 
-/* DocsPage 서브타이틀 - title/1 bold */
 .sbdocs-h2 {
   font-size: var(--semantic-typography-title\/1-bold-fontSize);
   line-height: var(--semantic-typography-title\/1-bold-lineHeight);
   letter-spacing: var(--semantic-typography-title\/1-bold-letterSpacing);
   font-weight: var(--semantic-typography-title\/1-bold-fontWeight);
-  color: var(--foundation-color-grey-light-20);
-  border-bottom: 1px solid var(--foundation-color-grey-light-80);
-  padding-bottom: var(--semantic-spacingVer-global-xs);
-  margin-top: var(--semantic-spacingVer-global-xl);
-  margin-bottom: var(--semantic-spacingVer-global-sm);
+  color: var(--semantic-color-secondary-foreground-1-rest);
+  margin-top: var(--semantic-spacingVer-global-xxl);
+  margin-bottom: var(--semantic-spacingVer-global-lg);
+  padding-bottom: var(--semantic-spacingVer-global-sm);
+  border-bottom: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest);
 }
 
-/* DocsPage 섹션 헤더 - heading/1 bold */
 .sbdocs-h3 {
   font-size: var(--semantic-typography-heading\/1-bold-fontSize);
   line-height: var(--semantic-typography-heading\/1-bold-lineHeight);
   letter-spacing: var(--semantic-typography-heading\/1-bold-letterSpacing);
   font-weight: var(--semantic-typography-heading\/1-bold-fontWeight);
-  color: var(--foundation-color-grey-light-20);
-  margin-top: var(--semantic-spacingVer-global-lg);
-  margin-bottom: var(--semantic-spacingVer-global-xs);
+  color: var(--semantic-color-secondary-foreground-1-rest);
+  margin-top: var(--semantic-spacingVer-global-xl);
+  margin-bottom: var(--semantic-spacingVer-global-md);
 }
 
-/* DocsPage 서브섹션 헤더 - heading/2 bold */
 .sbdocs-h4 {
   font-size: var(--semantic-typography-heading\/2-bold-fontSize);
   line-height: var(--semantic-typography-heading\/2-bold-lineHeight);
   letter-spacing: var(--semantic-typography-heading\/2-bold-letterSpacing);
   font-weight: var(--semantic-typography-heading\/2-bold-fontWeight);
-  color: var(--foundation-color-grey-light-30);
-  margin-top: var(--semantic-spacingVer-global-md);
-  margin-bottom: var(--semantic-spacingVer-global-xxs);
+  color: var(--semantic-color-secondary-foreground-2-rest);
+  margin-top: var(--semantic-spacingVer-global-lg);
+  margin-bottom: var(--semantic-spacingVer-global-sm);
 }
 
-/* DocsPage 단락 텍스트 - body/1 regular */
 .sbdocs-p {
   font-size: var(--semantic-typography-body\/1-regular-fontSize);
   line-height: var(--semantic-typography-body\/1-regular-lineHeight);
   letter-spacing: var(--semantic-typography-body\/1-regular-letterSpacing);
   font-weight: var(--semantic-typography-body\/1-regular-fontWeight);
-  color: var(--foundation-color-grey-light-30);
-  margin-bottom: var(--semantic-spacingVer-global-sm);
+  color: var(--semantic-color-secondary-foreground-2-rest);
+  margin-bottom: var(--semantic-spacingVer-global-lg);
 }
 
-/* DocsPage 코드 블록 - body/2 regular */
+/* 코드 블록 */
 .docblock-code-toggle, 
 .docblock-source {
   font-size: var(--semantic-typography-body\/2-regular-fontSize);
   line-height: var(--semantic-typography-body\/2-regular-lineHeight);
   font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
+  background-color: var(--semantic-color-secondary-background-2-rest) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
 }
 
-/* DocsPage 코드 인라인 - body/2 regular */
+/* 코드 블록 내부 구문 강조 스타일 */
+pre.prismjs {
+  background-color: var(--semantic-color-secondary-background-2-rest) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  padding: var(--semantic-spacingVer-global-md) !important;
+  overflow: auto !important;
+}
+
+/* 코드 요소 스타일 */
+code {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+}
+
+/* 인라인 코드 */
 .sbdocs-code, 
 .sbdocs-p code {
   font-size: var(--semantic-typography-body\/2-regular-fontSize);
   font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
-  background-color: var(--foundation-color-grey-light-94);
-  color: var(--foundation-color-blue-light-60);
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
+  background-color: var(--semantic-color-secondary-background-2-rest);
+  color: var(--semantic-color-primary-foreground-1-rest);
+  padding: var(--semantic-spacingVer-global-xxxs) var(--semantic-spacingVer-global-xxs);
+  border-radius: var(--semantic-radius-global-xxxs);
 }
 
-/* 리스트 스타일 - body/1 regular */
+/* 리스트 스타일 */
 .sbdocs-ul, 
 .sbdocs-ol {
   font-size: var(--semantic-typography-body\/1-regular-fontSize);
   line-height: var(--semantic-typography-body\/1-regular-lineHeight);
   letter-spacing: var(--semantic-typography-body\/1-regular-letterSpacing);
   font-weight: var(--semantic-typography-body\/1-regular-fontWeight);
-  color: var(--foundation-color-grey-light-30);
-  padding-left: 1.5em;
+  color: var(--semantic-color-secondary-foreground-2-rest);
+  padding-left: var(--semantic-spacingVer-global-xl);
+  margin-bottom: var(--semantic-spacingVer-global-lg);
+}
+
+.sbdocs-li {
   margin-bottom: var(--semantic-spacingVer-global-sm);
 }
 
-/* 테이블 스타일 - body/2 regular */
+/* 테이블 스타일 */
 .sbdocs-table {
   font-size: var(--semantic-typography-body\/2-regular-fontSize);
   line-height: var(--semantic-typography-body\/2-regular-lineHeight);
   letter-spacing: var(--semantic-typography-body\/2-regular-letterSpacing);
   font-weight: var(--semantic-typography-body\/2-regular-fontWeight);
-  color: var(--foundation-color-grey-light-20);
+  color: var(--semantic-color-secondary-foreground-1-rest);
   border-collapse: collapse;
   width: 100%;
+  margin: var(--semantic-spacingVer-global-lg) 0;
 }
 
-/* 테이블 헤더 - body/2 medium */
 .sbdocs-table th {
-  background-color: var(--foundation-color-grey-light-94);
+  background-color: var(--semantic-color-secondary-background-1-rest);
   font-weight: var(--semantic-typography-body\/2-medium-fontWeight);
-  border: 1px solid var(--foundation-color-grey-light-80);
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest);
   text-align: left;
-  padding: var(--semantic-spacingVer-global-xxs) var(--semantic-spacingHor-global-xs);
+  padding: var(--semantic-spacingVer-global-sm) var(--semantic-spacingVer-global-md);
 }
 
-/* 테이블 셀 - body/2 regular */
 .sbdocs-table td {
-  border: 1px solid var(--foundation-color-grey-light-80);
-  padding: var(--semantic-spacingVer-global-xxs) var(--semantic-spacingHor-global-xs);
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest);
+  padding: var(--semantic-spacingVer-global-sm) var(--semantic-spacingVer-global-md);
 }
 
-/* 컨트롤 패널 스타일 - label/1 bold */
+/* 컨트롤 패널 */
+.docblock-argstable {
+  border-radius: var(--semantic-radius-global-sm) !important;
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  overflow: hidden !important;
+  box-shadow: var(--semantic-shadow-global-1-rest-x) var(--semantic-shadow-global-1-rest-y) var(--semantic-shadow-global-1-rest-blur) var(--semantic-shadow-global-1-rest-color) !important;
+}
+
 .docblock-argstable-head,
 .docblock-argstable-headrow {
   font-size: var(--semantic-typography-label\/1-bold-fontSize);
   line-height: var(--semantic-typography-label\/1-bold-lineHeight);
   letter-spacing: var(--semantic-typography-label\/1-bold-letterSpacing);
   font-weight: var(--semantic-typography-label\/1-bold-fontWeight);
+  background-color: var(--semantic-color-secondary-background-1-rest) !important;
 }
 
-/* 컨트롤 테이블 본문 - body/2 regular */
 .docblock-argstable-body,
 .docblock-argstable-row {
   font-size: var(--semantic-typography-body\/2-regular-fontSize);
@@ -150,60 +202,361 @@ body {
   font-weight: var(--semantic-typography-body\/2-regular-fontWeight);
 }
 
-/* 버튼 스타일 - label/2 regular */
+/* 버튼 스타일 */
 .docblock-argstable-button,
 .sbdocs-button {
   font-size: var(--semantic-typography-label\/2-regular-fontSize);
   line-height: var(--semantic-typography-label\/2-regular-lineHeight);
   letter-spacing: var(--semantic-typography-label\/2-regular-letterSpacing);
   font-weight: var(--semantic-typography-label\/2-regular-fontWeight);
+  background-color: var(--semantic-color-secondary-background-1-rest) !important;
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  border-radius: var(--semantic-radius-global-xxxs) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+  transition: all 0.2s ease !important;
+  padding: var(--semantic-spacingVer-global-xs) var(--semantic-spacingVer-global-md) !important;
 }
 
-/* Controls 영역 */
+.docblock-argstable-button:hover,
+.sbdocs-button:hover {
+  background-color: var(--semantic-color-secondary-background-1-hovered) !important;
+  color: var(--semantic-color-secondary-foreground-1-hovered) !important;
+}
+
+/* 빈 상태 스타일 */
 .docblock-emptyblock {
-  font-size: var(--semantic-typography-caption\/1-regular-fontSize);
-  line-height: var(--semantic-typography-caption\/1-regular-lineHeight);
-  letter-spacing: var(--semantic-typography-caption\/1-regular-letterSpacing);
-  font-weight: var(--semantic-typography-caption\/1-regular-fontWeight);
+  border: var(--semantic-shape-borderWidth-thin) dashed var(--semantic-color-secondary-stroke-2-rest) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  color: var(--semantic-color-secondary-foreground-2-rest) !important;
+  background-color: var(--semantic-color-secondary-background-1-rest) !important;
+  padding: var(--semantic-spacingVer-global-lg) !important;
+  text-align: center !important;
 }
 
-/* 하단 Canvas, Docs 탭 메뉴 - body/2 medium */
+/* 탭 버튼 스타일 */
 .tabbutton {
-  font-size: var(--semantic-typography-body\/2-medium-fontSize);
-  line-height: var(--semantic-typography-body\/2-medium-lineHeight);
-  letter-spacing: var(--semantic-typography-body\/2-medium-letterSpacing);
-  font-weight: var(--semantic-typography-body\/2-medium-fontWeight);
+  font-size: var(--semantic-typography-label\/1-regular-fontSize) !important;
+  font-weight: var(--semantic-typography-label\/1-regular-fontWeight) !important;
+  color: var(--semantic-color-secondary-foreground-2-rest) !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: var(--semantic-shape-borderWidth-medium) solid transparent !important;
+  border-radius: 0 !important;
+  padding: var(--semantic-spacingVer-global-sm) var(--semantic-spacingVer-global-lg) !important;
 }
 
-/* 스토리 메뉴 아이템 - body/2 regular */
+.tabbutton[aria-selected="true"] {
+  font-weight: var(--semantic-typography-label\/1-bold-fontWeight) !important;
+  color: var(--semantic-color-primary-foreground-1-rest) !important;
+  border-bottom: var(--semantic-shape-borderWidth-medium) solid var(--semantic-color-primary-stroke-1-rest) !important;
+}
+
+/* 사이드바 아이템 스타일 */
 .sidebar-item {
-  font-size: var(--semantic-typography-body\/2-regular-fontSize);
-  line-height: var(--semantic-typography-body\/2-regular-lineHeight);
-  letter-spacing: var(--semantic-typography-body\/2-regular-letterSpacing);
-  font-weight: var(--semantic-typography-body\/2-regular-fontWeight);
+  font-size: var(--semantic-typography-body\/2-regular-fontSize) !important;
+  font-weight: var(--semantic-typography-body\/2-regular-fontWeight) !important;
+  color: var(--semantic-color-secondary-foreground-2-rest) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  padding: var(--semantic-spacingVer-global-xs) var(--semantic-spacingVer-global-sm) !important;
+  margin: var(--semantic-spacingVer-global-xxxs) var(--semantic-spacingVer-global-sm) !important;
+  transition: all 0.2s ease !important;
 }
 
-/* 스토리 그룹 - label/1 bold */
+.sidebar-item[data-selected="true"] {
+  background-color: var(--semantic-color-primary-background-1-rest) !important;
+  color: var(--semantic-color-primary-oncolor-global) !important;
+  font-weight: var(--semantic-typography-body\/2-bold-fontWeight) !important;
+}
+
+.sidebar-item:hover:not([data-selected="true"]) {
+  background-color: var(--semantic-color-secondary-background-1-hovered) !important;
+  color: var(--semantic-color-secondary-foreground-2-hovered) !important;
+}
+
+/* 그룹 헤더 스타일 */
 [data-nodetype="group"] > span {
-  font-size: var(--semantic-typography-label\/1-bold-fontSize);
-  line-height: var(--semantic-typography-label\/1-bold-lineHeight);
-  letter-spacing: var(--semantic-typography-label\/1-bold-letterSpacing);
-  font-weight: var(--semantic-typography-label\/1-bold-fontWeight);
-  text-transform: uppercase;
+  font-size: var(--semantic-typography-label\/1-bold-fontSize) !important;
+  font-weight: var(--semantic-typography-label\/1-bold-fontWeight) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+  text-transform: uppercase !important;
+  letter-spacing: var(--semantic-typography-label\/1-bold-letterSpacing) !important;
+  margin-top: var(--semantic-spacingVer-global-lg) !important;
+  margin-bottom: var(--semantic-spacingVer-global-xxs) !important;
+  padding: var(--semantic-spacingVer-global-sm) var(--semantic-spacingVer-global-lg) !important;
+  display: block !important;
 }
 
-/* MDX 컨텐츠 영역의 기본 폰트 사이즈 - body/1 regular */
+/* 문서 컨텐츠 스타일 */
 .sbdocs-content {
-  font-size: var(--semantic-typography-body\/1-regular-fontSize);
-  line-height: var(--semantic-typography-body\/1-regular-lineHeight);
-  letter-spacing: var(--semantic-typography-body\/1-regular-letterSpacing);
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: var(--semantic-spacingVer-global-sm) var(--semantic-spacingVer-global-xxl) !important;
+  box-sizing: border-box !important;
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
 }
 
-/* 미사용 스타일 방지를 위해 주석 처리
-.sidebar-header h1 {
-  font-size: var(--semantic-typography-title\/1-medium-fontSize);
-  line-height: var(--semantic-typography-title\/1-medium-lineHeight);
-  letter-spacing: var(--semantic-typography-title\/1-medium-letterSpacing);
-  font-weight: var(--semantic-typography-title\/1-medium-fontWeight);
+.sbdocs.sbdocs-wrapper {
+  min-height: 100vh !important;
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
 }
-*/ 
+
+.sbdocs.sbdocs-content {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: var(--semantic-spacingVer-global-xxl) var(--semantic-spacingVer-global-sm) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 캔버스 스타일 */
+.css-k7lbue,
+.css-1wjen9k, 
+.css-1fqz1hn {
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  box-shadow: var(--semantic-shadow-global-1-rest-x) var(--semantic-shadow-global-1-rest-y) var(--semantic-shadow-global-1-rest-blur) var(--semantic-shadow-global-1-rest-color) !important;
+  padding: var(--semantic-spacingVer-global-lg) !important;
+  margin-bottom: var(--semantic-spacingVer-global-xl) !important;
+}
+
+.docs-story {
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  box-shadow: var(--semantic-shadow-global-1-rest-x) var(--semantic-shadow-global-1-rest-y) var(--semantic-shadow-global-1-rest-blur) var(--semantic-shadow-global-1-rest-color) !important;
+  padding: var(--semantic-spacingVer-global-lg) !important;
+}
+
+.docs-block {
+  padding: var(--semantic-spacingVer-global-lg) 0 !important;
+  border-bottom: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  margin-bottom: var(--semantic-spacingVer-global-lg) !important;
+}
+
+/* 패딩 설정 */
+.sb-main-padded {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+}
+
+.sb-preview-padded {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+}
+
+.sb-docs {
+  padding: var(--semantic-spacingVer-global-md) var(--semantic-spacingVer-global-sm) !important;
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+}
+
+/* 기타 스타일 */
+#storybook-docs {
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+  font-family: 'Pretendard', sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+[class*="css-"] > [class*="css-"],
+[id="storybook-root"],
+[id="storybook-docs"] > div {
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  font-family: 'Pretendard', sans-serif !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+  fill: var(--semantic-color-secondary-foreground-1-rest) !important;
+  stroke: var(--semantic-color-secondary-foreground-1-rest) !important;
+}
+
+/* 링크 스타일 */
+.sbdocs-a {
+  color: var(--semantic-color-primary-foreground-1-rest) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.sbdocs-a:hover {
+  color: var(--semantic-color-primary-foreground-1-hovered) !important;
+  text-decoration: underline !important;
+}
+
+/* 이미지 스타일 */
+.sbdocs-img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+}
+
+/* 토큰 그리드 스타일 */
+.token-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+  gap: var(--semantic-spacingVer-global-lg) !important;
+  margin: var(--semantic-spacingVer-global-xl) 0 !important;
+}
+
+.token-row {
+  display: flex !important;
+  align-items: center !important;
+  padding: var(--semantic-spacingVer-global-md) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  background-color: var(--semantic-color-secondary-background-inverse-rest) !important;
+  box-shadow: var(--semantic-shadow-global-1-rest-x) var(--semantic-shadow-global-1-rest-y) var(--semantic-shadow-global-1-rest-blur) var(--semantic-shadow-global-1-rest-color) !important;
+}
+
+.token-preview {
+  width: var(--semantic-size-global-xxl) !important;
+  height: var(--semantic-size-global-xxl) !important;
+  border-radius: var(--semantic-radius-global-sm) !important;
+  margin-right: var(--semantic-spacingVer-global-md) !important;
+  border: var(--semantic-shape-borderWidth-thin) solid var(--semantic-color-secondary-stroke-2-rest) !important;
+  background-color: var(--semantic-color-secondary-background-2-rest) !important;
+  flex-shrink: 0 !important;
+}
+
+.token-info {
+  flex: 1 !important;
+}
+
+.token-label {
+  font-size: var(--semantic-typography-label\/2-bold-fontSize) !important;
+  font-weight: var(--semantic-typography-label\/2-bold-fontWeight) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+  margin-bottom: var(--semantic-spacingVer-global-xxs) !important;
+}
+
+.token-name {
+  font-size: var(--semantic-typography-code\/1-regular-fontSize) !important;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace !important;
+  background-color: var(--semantic-color-secondary-background-2-rest) !important;
+  color: var(--semantic-color-primary-foreground-1-rest) !important;
+  padding: var(--semantic-spacingVer-global-xxxs) var(--semantic-spacingVer-global-xxs) !important;
+  border-radius: var(--semantic-radius-global-xxxs) !important;
+  display: inline-block !important;
+  margin-bottom: var(--semantic-spacingVer-global-xxs) !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.token-value {
+  font-size: var(--semantic-typography-body\/2-regular-fontSize) !important;
+  color: var(--semantic-color-secondary-foreground-2-rest) !important;
+}
+
+/* 색상 토큰 특화 스타일 */
+.color-swatch {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  gap: var(--semantic-spacingVer-global-lg) !important;
+  margin: var(--semantic-spacingVer-global-xl) 0 !important;
+}
+
+.color-preview {
+  width: 100% !important;
+  height: 100px !important;
+  border-radius: var(--semantic-radius-global-sm) var(--semantic-radius-global-sm) 0 0 !important;
+}
+
+.color-info {
+  padding: var(--semantic-spacingVer-global-md) !important;
+}
+
+.color-name {
+  font-size: var(--semantic-typography-label\/1-bold-fontSize) !important;
+  font-weight: var(--semantic-typography-label\/1-bold-fontWeight) !important;
+  color: var(--semantic-color-secondary-foreground-1-rest) !important;
+  margin-bottom: var(--semantic-spacingVer-global-xxs) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.color-token {
+  font-size: var(--semantic-typography-code\/1-regular-fontSize) !important;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace !important;
+  background-color: var(--semantic-color-secondary-background-2-rest) !important;
+  color: var(--semantic-color-primary-foreground-1-rest) !important;
+  padding: var(--semantic-spacingVer-global-xxxs) var(--semantic-spacingVer-global-xxs) !important;
+  border-radius: var(--semantic-radius-global-xxxs) !important;
+  display: block !important;
+  margin-bottom: var(--semantic-spacingVer-global-xxs) !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.color-value {
+  font-size: var(--semantic-typography-body\/2-regular-fontSize) !important;
+  color: var(--semantic-color-secondary-foreground-2-rest) !important;
+}
+
+/* 코드 강조 토큰 스타일 */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--semantic-color-secondary-foreground-3-rest) !important;
+}
+
+.token.punctuation {
+  color: var(--semantic-color-secondary-foreground-2-rest) !important;
+}
+
+.token.namespace {
+  opacity: 0.7 !important;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--semantic-color-status-error-global) !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--semantic-color-status-success-global) !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: var(--semantic-color-status-warning-global) !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--semantic-color-primary-foreground-1-rest) !important;
+}
+
+.token.function,
+.token.class-name {
+  color: var(--semantic-color-status-info-global) !important;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--semantic-color-cta-foreground-1-rest) !important;
+} 
