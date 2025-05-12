@@ -1,6 +1,6 @@
 /**
  * 자동 생성된 CSS 변수
- * 생성 시간: 2025-05-08T05:45:44.782Z
+ * 생성 시간: 2025-05-12T01:30:48.653Z
  */
 
 :root {
@@ -781,5 +781,59 @@
   --semantic-height-global-xl: var(--foundation-height-360);
   --semantic-height-global-xxl: var(--foundation-height-400);
   --semantic-height-global-xxxl: var(--foundation-height-440);
+  --semantic-layout-spacing-inset-xs: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-inset-sm: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-inset-md: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-inset-lg: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-inset-xl: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-stack-xs: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-stack-sm: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-stack-md: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-stack-lg: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-stack-xl: var(--foundation-spacing-0-vertical);
+  --semantic-layout-spacing-inline-xs: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-spacing-inline-sm: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-spacing-inline-md: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-spacing-inline-lg: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-spacing-inline-xl: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-grid-gutter-sm: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-grid-gutter-md: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-grid-gutter-lg: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-grid-margin-sm: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-grid-margin-md: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-grid-margin-lg: var(--foundation-spacing-0-horizontal);
+  --semantic-layout-grid-columns-sm: var(--foundation-size-40);
+  --semantic-layout-grid-columns-md: var(--foundation-size-80);
+  --semantic-layout-grid-columns-lg: var(--foundation-size-120);
+  --semantic-layout-breakpoint-small: 479px;
+  --semantic-layout-breakpoint-medium: 639px;
+  --semantic-layout-breakpoint-large: 1023px;
+  --semantic-layout-breakpoint-xlarge: 1365px;
+  --semantic-layout-breakpoint-xxlarge: 1919px;
+  --semantic-shape-radius-button-sm: var(--foundation-radius-20);
+  --semantic-shape-radius-button-md: var(--foundation-radius-40);
+  --semantic-shape-radius-button-lg: var(--foundation-radius-60);
+  --semantic-shape-radius-card: var(--foundation-radius-40);
+  --semantic-shape-radius-input: var(--foundation-radius-40);
+  --semantic-shape-radius-badge-default: var(--foundation-radius-20);
+  --semantic-shape-radius-badge-pill: var(--foundation-radius-1000);
+  --semantic-shape-radius-avatar: var(--foundation-radius-1000);
+  --semantic-shape-radius-popover: var(--foundation-radius-60);
+  --semantic-shape-radius-modal: var(--foundation-radius-60);
+  --semantic-shape-borderWidth-thin: var(--foundation-strokeWidth-10);
+  --semantic-shape-borderWidth-medium: var(--foundation-strokeWidth-20);
+  --semantic-shape-borderWidth-thick: var(--foundation-strokeWidth-30);
+  --semantic-shape-borderWidth-thicker: var(--foundation-strokeWidth-40);
+  --semantic-shape-borderWidth-button: var(--foundation-strokeWidth-10);
+  --semantic-shape-borderWidth-card: var(--foundation-strokeWidth-10);
+  --semantic-shape-borderWidth-input-default: var(--foundation-strokeWidth-10);
+  --semantic-shape-borderWidth-input-focused: var(--foundation-strokeWidth-20);
+  --semantic-shape-borderWidth-divider: var(--foundation-strokeWidth-10);
+  --semantic-shape-form-rectangle-default-borderRadius: var(--foundation-radius-20);
+  --semantic-shape-form-rectangle-sharp-borderRadius: var(--foundation-radius-0);
+  --semantic-shape-form-circular-borderRadius: var(--foundation-radius-1000);
+  --semantic-shape-form-pill-borderRadius: var(--foundation-radius-1000);
+  --semantic-shape-form-beak-width: var(--foundation-size-80);
+  --semantic-shape-form-beak-height: var(--foundation-size-80);
 
 }
