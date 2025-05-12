@@ -19,10 +19,10 @@ project/
 │   │   │   └── patterns/    # 패턴
 │   │   ├── styles/          # 생성된 CSS 변수
 │   │   │   └── variables.css
-│   ├── system-2/            # 디자인 시스템 2 (예: 서비스 B용)
-│   └── shared/              # 모든 디자인 시스템이 공유하는 리소스
-│       └── tokens/          # 공유 토큰
-│           └── foundation.json
+│   │   ├── system-2/            # 디자인 시스템 2 (예: 서비스 B용)
+│   │   └── shared/              # 모든 디자인 시스템이 공유하는 리소스
+│   │       └── tokens/          # 공유 토큰
+│   │           └── foundation.json
 ├── scripts/                 # 빌드 스크립트
 │   └── config.js            # 토큰 변환 설정
 └── .storybook/             # 스토리북 설정
@@ -428,267 +428,361 @@ project/
 
 ### 간트 차트
 
-<table className="gantt-chart">
-  <thead>
-    <tr>
-      <th rowSpan="2">구분</th>
-      <th rowSpan="2">세부 업무 명칭</th>
-      <th colSpan="15">5월</th>
-      <th colSpan="15">6월</th>
-    </tr>
-    <tr>
-      <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
-      <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
-      <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
-      <th>16</th><th>17</th><th>18</th><th>19</th><th>20</th>
-      <th>21</th><th>22</th><th>23</th><th>24</th><th>25</th>
-      <th>26</th><th>27</th><th>28</th><th>29</th><th>30</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowSpan="4">기획</td>
-      <td>요구사항 분석</td>
-      <td className="completed" colSpan="3"></td>
-      <td colSpan="27"></td>
-    </tr>
-    <tr>
-      <td>디자인 원칙 수립</td>
-      <td colSpan="3"></td>
-      <td className="completed" colSpan="2"></td>
-      <td colSpan="25"></td>
-    </tr>
-    <tr>
-      <td>디자인 시스템 구조 설계</td>
-      <td colSpan="5"></td>
-      <td className="completed" colSpan="2"></td>
-      <td colSpan="23"></td>
-    </tr>
-    <tr>
-      <td>네이밍 컨벤션 정의</td>
-      <td colSpan="7"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="22"></td>
-    </tr>
-    <tr>
-      <td rowSpan="6">파운데이션<br/>토큰</td>
-      <td>색상 팔레트 정의</td>
-      <td colSpan="8"></td>
-      <td className="completed" colSpan="3"></td>
-      <td colSpan="19"></td>
-    </tr>
-    <tr>
-      <td>타이포그래피 정의</td>
-      <td colSpan="11"></td>
-      <td className="completed" colSpan="2"></td>
-      <td colSpan="17"></td>
-    </tr>
-    <tr>
-      <td>스페이싱 정의</td>
-      <td colSpan="13"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="16"></td>
-    </tr>
-    <tr>
-      <td>사이즈 및 반경 정의</td>
-      <td colSpan="14"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="15"></td>
-    </tr>
-    <tr>
-      <td>그림자 및 효과 정의</td>
-      <td colSpan="15"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="14"></td>
-    </tr>
-    <tr>
-      <td>foundation.json 작성</td>
-      <td colSpan="16"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="13"></td>
-    </tr>
-    <tr>
-      <td rowSpan="4">시멘틱<br/>토큰</td>
-      <td>UI 상태 분석</td>
-      <td colSpan="17"></td>
-      <td className="completed" colSpan="2"></td>
-      <td colSpan="11"></td>
-    </tr>
-    <tr>
-      <td>시멘틱 색상 토큰 정의</td>
-      <td colSpan="19"></td>
-      <td className="completed" colSpan="2"></td>
-      <td colSpan="9"></td>
-    </tr>
-    <tr>
-      <td>시멘틱 타이포그래피 토큰 정의</td>
-      <td colSpan="21"></td>
-      <td className="completed" colSpan="2"></td>
-      <td colSpan="7"></td>
-    </tr>
-    <tr>
-      <td>semantic.json 작성</td>
-      <td colSpan="23"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="6"></td>
-    </tr>
-    <tr>
-      <td rowSpan="4">Style<br/>Dictionary</td>
-      <td>Style Dictionary 설치 및 설정</td>
-      <td colSpan="24"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="5"></td>
-    </tr>
-    <tr>
-      <td>변환 포맷 설정</td>
-      <td colSpan="25"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="4"></td>
-    </tr>
-    <tr>
-      <td>빌드 스크립트 작성</td>
-      <td colSpan="26"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="3"></td>
-    </tr>
-    <tr>
-      <td>테스트 및 검증</td>
-      <td colSpan="27"></td>
-      <td className="completed" colSpan="1"></td>
-      <td colSpan="2"></td>
-    </tr>
-    <tr>
-      <td rowSpan="3">스토리북</td>
-      <td>스토리북 설치 및 설정</td>
-      <td colSpan="18"></td>
-      <td className="planned" colSpan="2"></td>
-      <td colSpan="10"></td>
-    </tr>
-    <tr>
-      <td>토큰 문서화</td>
-      <td colSpan="20"></td>
-      <td className="planned" colSpan="2"></td>
-      <td colSpan="8"></td>
-    </tr>
-    <tr>
-      <td>문서화 자동화 파이프라인 구축</td>
-      <td colSpan="22"></td>
-      <td className="planned" colSpan="2"></td>
-      <td colSpan="6"></td>
-    </tr>
-    <tr>
-      <td rowSpan="5">패키지화</td>
-      <td>패키지 구조 설계</td>
-      <td colSpan="24"></td>
-      <td className="planned" colSpan="2"></td>
-      <td colSpan="4"></td>
-    </tr>
-    <tr>
-      <td>package.json 설정</td>
-      <td colSpan="26"></td>
-      <td className="planned" colSpan="1"></td>
-      <td colSpan="3"></td>
-    </tr>
-    <tr>
-      <td>번들러 설정</td>
-      <td colSpan="27"></td>
-      <td className="planned" colSpan="2"></td>
-      <td colSpan="1"></td>
-    </tr>
-    <tr>
-      <td>타입 정의 파일 작성</td>
-      <td colSpan="29"></td>
-      <td className="planned" colSpan="1"></td>
-    </tr>
-    <tr>
-      <td>배포 설정</td>
-      <td colSpan="30"></td>
-      <td className="planned" colSpan="1"></td>
-      <td colSpan="15"></td>
-    </tr>
-    <tr>
-      <td rowSpan="3">사용성<br/>테스트</td>
-      <td>타 프로젝트 적용</td>
-      <td colSpan="31"></td>
-      <td className="planned" colSpan="5"></td>
-      <td colSpan="10"></td>
-    </tr>
-    <tr>
-      <td>적용 결과 분석</td>
-      <td colSpan="31"></td>
-      <td colSpan="5"></td>
-      <td className="planned" colSpan="3"></td>
-      <td colSpan="7"></td>
-    </tr>
-    <tr>
-      <td>피드백 수집 및 개선</td>
-      <td colSpan="31"></td>
-      <td colSpan="8"></td>
-      <td className="planned" colSpan="2"></td>
-      <td colSpan="5"></td>
-    </tr>
-    <tr>
-      <td rowSpan="5">컴포넌트<br/>개발</td>
-      <td>컴포넌트 계층 구조 설계</td>
-      <td colSpan="31"></td>
-      <td colSpan="10"></td>
-      <td className="planned" colSpan="2"></td>
-      <td colSpan="3"></td>
-    </tr>
-    <tr>
-      <td>Primitive 컴포넌트 개발</td>
-      <td colSpan="31"></td>
-      <td colSpan="12"></td>
-      <td className="planned" colSpan="5"></td>
-      <td colSpan="3"></td>
-    </tr>
-    <tr>
-      <td>Compound 컴포넌트 개발</td>
-      <td colSpan="31"></td>
-      <td colSpan="17"></td>
-      <td className="planned" colSpan="5"></td>
-      <td colSpan="8"></td>
-    </tr>
-    <tr>
-      <td>컴포넌트 테스트 및 문서화</td>
-      <td colSpan="31"></td>
-      <td colSpan="22"></td>
-      <td className="planned" colSpan="3"></td>
-      <td colSpan="5"></td>
-    </tr>
-    <tr>
-      <td>컴포넌트 사용성 테스트</td>
-      <td colSpan="31"></td>
-      <td colSpan="25"></td>
-      <td className="planned" colSpan="5"></td>
-    </tr>
-  </tbody>
-</table>
+<div className="gantt-container">
+  <table className="gantt-chart">
+    <thead>
+      <tr>
+        <th className="gantt-header-task">구분</th>
+        <th className="gantt-header-task">세부 업무</th>
+        <th colSpan="31" className="gantt-header-timeline">5월 ~ 6월</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th></th>
+        <th className="day">1</th><th className="day">2</th><th className="day">3</th><th className="day">4</th><th className="day">5</th>
+        <th className="day">6</th><th className="day">7</th><th className="day">8</th><th className="day">9</th><th className="day">10</th>
+        <th className="day">11</th><th className="day">12</th><th className="day">13</th><th className="day">14</th><th className="day">15</th>
+        <th className="day">16</th><th className="day">17</th><th className="day">18</th><th className="day">19</th><th className="day">20</th>
+        <th className="day">21</th><th className="day">22</th><th className="day">23</th><th className="day">24</th><th className="day">25</th>
+        <th className="day">26</th><th className="day">27</th><th className="day">28</th><th className="day">29</th><th className="day">30</th>
+        <th className="day">31</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="gantt-section">
+        <td rowSpan="4" className="gantt-section-title">기획</td>
+        <td>요구사항 분석</td>
+        <td colSpan="3" className="bar completed"></td>
+        <td colSpan="28"></td>
+      </tr>
+      <tr>
+        <td>디자인 원칙 수립</td>
+        <td colSpan="3"></td>
+        <td colSpan="2" className="bar completed"></td>
+        <td colSpan="26"></td>
+      </tr>
+      <tr>
+        <td>시스템 구조 설계</td>
+        <td colSpan="5"></td>
+        <td colSpan="2" className="bar completed"></td>
+        <td colSpan="24"></td>
+      </tr>
+      <tr>
+        <td>네이밍 컨벤션</td>
+        <td colSpan="7"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="23"></td>
+      </tr>
+      
+      <tr className="gantt-section">
+        <td rowSpan="6" className="gantt-section-title">파운데이션<br/>토큰</td>
+        <td>색상 팔레트</td>
+        <td colSpan="8"></td>
+        <td colSpan="3" className="bar completed"></td>
+        <td colSpan="20"></td>
+      </tr>
+      <tr>
+        <td>타이포그래피</td>
+        <td colSpan="11"></td>
+        <td colSpan="2" className="bar completed"></td>
+        <td colSpan="18"></td>
+      </tr>
+      <tr>
+        <td>스페이싱</td>
+        <td colSpan="13"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="17"></td>
+      </tr>
+      <tr>
+        <td>사이즈 및 반경</td>
+        <td colSpan="14"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="16"></td>
+      </tr>
+      <tr>
+        <td>그림자 및 효과</td>
+        <td colSpan="15"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="15"></td>
+      </tr>
+      <tr>
+        <td>foundation.json</td>
+        <td colSpan="16"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="14"></td>
+      </tr>
+      
+      <tr className="gantt-section">
+        <td rowSpan="4" className="gantt-section-title">시멘틱<br/>토큰</td>
+        <td>UI 상태 분석</td>
+        <td colSpan="17"></td>
+        <td colSpan="2" className="bar completed"></td>
+        <td colSpan="12"></td>
+      </tr>
+      <tr>
+        <td>시멘틱 색상</td>
+        <td colSpan="19"></td>
+        <td colSpan="2" className="bar completed"></td>
+        <td colSpan="10"></td>
+      </tr>
+      <tr>
+        <td>시멘틱 타이포그래피</td>
+        <td colSpan="21"></td>
+        <td colSpan="2" className="bar completed"></td>
+        <td colSpan="8"></td>
+      </tr>
+      <tr>
+        <td>semantic.json</td>
+        <td colSpan="23"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="7"></td>
+      </tr>
+      
+      <tr className="gantt-section">
+        <td rowSpan="4" className="gantt-section-title">Style<br/>Dictionary</td>
+        <td>설치 및 설정</td>
+        <td colSpan="24"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="6"></td>
+      </tr>
+      <tr>
+        <td>변환 포맷 설정</td>
+        <td colSpan="25"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="5"></td>
+      </tr>
+      <tr>
+        <td>빌드 스크립트</td>
+        <td colSpan="26"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="4"></td>
+      </tr>
+      <tr>
+        <td>테스트 및 검증</td>
+        <td colSpan="27"></td>
+        <td colSpan="1" className="bar completed"></td>
+        <td colSpan="3"></td>
+      </tr>
+      
+      <tr className="gantt-section">
+        <td rowSpan="3" className="gantt-section-title">스토리북</td>
+        <td>설치 및 설정</td>
+        <td colSpan="18"></td>
+        <td colSpan="2" className="bar planned"></td>
+        <td colSpan="11"></td>
+      </tr>
+      <tr>
+        <td>토큰 문서화</td>
+        <td colSpan="20"></td>
+        <td colSpan="2" className="bar planned"></td>
+        <td colSpan="9"></td>
+      </tr>
+      <tr>
+        <td>문서화 자동화</td>
+        <td colSpan="22"></td>
+        <td colSpan="2" className="bar planned"></td>
+        <td colSpan="7"></td>
+      </tr>
+      
+      <tr className="gantt-section">
+        <td rowSpan="5" className="gantt-section-title">패키지화</td>
+        <td>패키지 구조 설계</td>
+        <td colSpan="24"></td>
+        <td colSpan="2" className="bar planned"></td>
+        <td colSpan="5"></td>
+      </tr>
+      <tr>
+        <td>package.json 설정</td>
+        <td colSpan="26"></td>
+        <td colSpan="1" className="bar planned"></td>
+        <td colSpan="4"></td>
+      </tr>
+      <tr>
+        <td>번들러 설정</td>
+        <td colSpan="27"></td>
+        <td colSpan="2" className="bar planned"></td>
+        <td colSpan="2"></td>
+      </tr>
+      <tr>
+        <td>타입 정의 파일</td>
+        <td colSpan="29"></td>
+        <td colSpan="1" className="bar planned"></td>
+        <td colSpan="1"></td>
+      </tr>
+      <tr>
+        <td>배포 설정</td>
+        <td colSpan="30"></td>
+        <td colSpan="1" className="bar planned"></td>
+      </tr>
+      
+      <tr className="gantt-section">
+        <td rowSpan="3" className="gantt-section-title">사용성<br/>테스트</td>
+        <td>타 프로젝트 적용</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="5" className="bar planned next-month" data-month="6"></td>
+      </tr>
+      <tr>
+        <td>적용 결과 분석</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="3" className="bar planned next-month" data-month="6" data-offset="5"></td>
+      </tr>
+      <tr>
+        <td>피드백 수집 및 개선</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="2" className="bar planned next-month" data-month="6" data-offset="8"></td>
+      </tr>
+      
+      <tr className="gantt-section">
+        <td rowSpan="5" className="gantt-section-title">컴포넌트<br/>개발</td>
+        <td>계층 구조 설계</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="2" className="bar planned next-month" data-month="6" data-offset="10"></td>
+      </tr>
+      <tr>
+        <td>Primitive 컴포넌트</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="5" className="bar planned next-month" data-month="6" data-offset="12"></td>
+      </tr>
+      <tr>
+        <td>Compound 컴포넌트</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="5" className="bar planned next-month" data-month="6" data-offset="17"></td>
+      </tr>
+      <tr>
+        <td>컴포넌트 테스트</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="3" className="bar planned next-month" data-month="6" data-offset="22"></td>
+      </tr>
+      <tr>
+        <td>사용성 테스트</td>
+        <td colSpan="31" className="month-divider"></td>
+        <td colSpan="5" className="bar planned next-month" data-month="6" data-offset="25"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div className="gantt-legend">
+  <div className="legend-item">
+    <span className="legend-color completed"></span>
+    <span className="legend-text">완료된 작업</span>
+  </div>
+  <div className="legend-item">
+    <span className="legend-color planned"></span>
+    <span className="legend-text">예정된 작업</span>
+  </div>
+</div>
 
 <style jsx>{`
+  .gantt-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+  
   .gantt-chart {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
+    font-size: 12px;
   }
   
   .gantt-chart th, .gantt-chart td {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     text-align: center;
-    font-size: 12px;
-    padding: 2px;
+    padding: 4px 2px;
+    position: relative;
   }
   
-  .gantt-chart th {
+  .gantt-header-task {
+    width: 100px;
+    background-color: #f4f4f4;
+    position: sticky;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .gantt-header-timeline {
+    background-color: #f4f4f4;
+  }
+  
+  .gantt-section-title {
     background-color: #f0f0f0;
+    font-weight: bold;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    text-align: center;
   }
   
-  .gantt-chart .completed {
+  .gantt-section td:nth-child(2) {
+    position: sticky;
+    left: 100px;
+    background-color: #f8f8f8;
+    z-index: 1;
+    text-align: left;
+    padding-left: 8px;
+  }
+  
+  .day {
+    width: 20px;
+    padding: 2px;
+    font-size: 10px;
+  }
+  
+  .bar {
+    position: relative;
+    height: 20px;
+  }
+  
+  .bar.completed {
     background-color: #8bc34a;
   }
   
-  .gantt-chart .planned {
+  .bar.planned {
     background-color: #64b5f6;
+  }
+  
+  .month-divider {
+    border-right: 2px solid #aaa;
+  }
+  
+  .next-month {
+    display: none;
+  }
+  
+  .gantt-legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+  }
+  
+  .legend-color.completed {
+    background-color: #8bc34a;
+  }
+  
+  .legend-color.planned {
+    background-color: #64b5f6;
+  }
+`}</style>
+
+<style global jsx>{`
+  /* 6월 부분은 별도의 테이블로 만들거나 표시하기 위한 예시 스타일 */
+  /* 실제 구현시 필요에 따라 조정 */
+  .month-separator {
+    border-left: 2px solid #333;
   }
 `}</style>
 
